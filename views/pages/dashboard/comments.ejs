@@ -1,0 +1,143 @@
+<%- include('../../partials/head.ejs')  %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-2">
+            <%- include('../../partials/sidebar.ejs')  %>
+        </div>
+
+        <div class="col-sm-12 col-md-10">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 offset-md-2 mt-5">
+                    <h5>List of My recent comments</h5>
+                    <div class="mt-5">
+                        <div id="comment-holder">
+                            <% if(comments.length === 0){ %>
+                            <p class="text-muted text-center">There is no comment</p>
+                            <% }else{ %>
+                            <div class="comments-container" style="margin-left: 10px;">
+                                <% for(let comment of comments.reverse()){ %>
+                                <div class="card mt-5">
+                                    <p class="text-muted mt-5 text-center mx-5 ">
+                                        On post <strong>
+                                            <a class="text-dark py-2 px-2 rounded" style="background-color: #F0F2F5;"
+                                                href=/explorer/<%= comment.post._id %>>
+                                                <%= comment.post.title  %></a>
+                                        </strong>
+                                        Commented By <a class="text-primary" href=" /author/<%= comment.user._id %> ">
+                                            <%= comment.user.username %> </a> , <%= moment(comment.createdAt) %>
+                                    </p>
+                                    <ul id=" comments-list" class="comments-list" style="padding-left: 0;">
+                                        <!-- single comment with reply starts here -->
+                                        <li>
+                                            <div class="comment-main-level full-comment-container">
+                                                <div class="comment-avatar"><img src="<%= comment.user.profilePics  %>"
+                                                        alt="">
+                                                </div>
+                                                <div class="comment-box">
+                                                    <div class="comment-head">
+                                                        <h6 class="comment-name by-author"><a
+                                                                href="/author/<%= comment.user._id %>"><%= comment.user.username  %></a>
+                                                        </h6>
+                                                        <span class="text-dark"><%= moment(comment.createdAt) %></span>
+                                                        <p class="text-end reply-btn"
+                                                            style="margin: 0; cursor: pointer;">
+                                                            Reply
+                                                        </p>
+                                                    </div>
+                                                    <div class="comment-content">
+                                                        <%= comment.body  %>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- this ul for all reply list -->
+                                            <ul class="comments-list reply-list">
+                                                <% if(comment.replies.length >0){ %>
+                                                <% for(let reply of comment.replies ){ %>
+                                                <!-- single reply starts here-->
+                                                <li>
+                                                    <div class="comment-avatar"><img
+                                                            src="<%= reply.user.profilePics  %>" alt="">
+                                                    </div>
+                                                    <!-- reply -->
+                                                    <div class="comment-box">
+                                                        <div class="comment-head">
+                                                            <h6 class="comment-name"><a
+                                                                    href="http://creaticode.com/blog"><%= reply.user.username  %></a>
+                                                            </h6>
+                                                            <span> <%= moment(reply.createdAt) %> </span>
+
+                                                        </div>
+                                                        <div class="comment-content">
+                                                            <%= reply.body %>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <% } %>
+                                                <% } %>
+                                                <div class="mt-4 replyBox">
+                                                    <div class="comment-avatar"><img src="<%= user.profilePics  %>"
+                                                            alt="">
+                                                    </div>
+                                                    <!-- reply -->
+                                                    <div class="comment-box">
+                                                        <div class="comment-head">
+                                                            <h6 class="comment-name"><a
+                                                                    href="http://creaticode.com/blog"><%= user.username %>
+                                                                    %></a>
+                                                            </h6>
+                                                        </div>
+                                                        <div class="comment-content reply-inputDiv">
+                                                            <input type="text" name="reply" class="reply-input" name=""
+                                                                id="" rows="4" data-comment="<%= comment._id %> "
+                                                                value="@<%= comment.user.username  %>  ">
+                                                        </div>
+                                                    </div>
+                                                    <!-- single reply ends here-->
+                                            </ul>
+                                        </li>
+                                        <!-- single comment with reply ends here -->
+                                        </li>
+                                    </ul>
+                                </div>
+                                <% } %>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('../../partials/footer.ejs')  %>
+
+<script src="/scripts/comment.js"></script>
+<script>
+    var replyBtn = document.querySelectorAll(".reply-btn")
+    var replyDiv = document.querySelectorAll(".replyBox")
+    var replyInput = document.querySelectorAll(".reply-input")
+
+    var commentBoxArray = Array.prototype.slice.call(replyBtn)
+    var replyDivArray = Array.prototype.slice.call(replyDiv)
+    var replyInputArray = Array.prototype.slice.call(replyInput)
+
+    var replyDivIndex = -1;
+    var displayNoneIndex = -1;
+
+    for (let i = 0; i < commentBoxArray.length; i++) {
+        commentBoxArray[i].addEventListener('click', (e) => {
+            replyDivArray[i].classList.toggle("replyBox")
+            replyInputArray[i].focus()
+            replyDivIndex = i
+        })
+
+    }
+
+</script>
+</body>
+
+</html>

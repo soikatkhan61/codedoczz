@@ -1,0 +1,381 @@
+<%- include('../../partials/head.ejs')  %>
+
+
+<!-- post header starts here -->
+<div class="container-fluid navColor">
+    <div class="row py-2 d-flex justify-content-between align-items-center post-info">
+        <div class="col-9 post-title text-light d-flex align-items-center">
+            <span class="display-6"><%= post.title %></span>
+        </div>
+        <div class="col-3 text-light">
+            <h6 class="display-6"><span>161</span>K views</h6>
+        </div>
+    </div>
+</div>
+<!-- post header ends here -->
+
+<!-- Main post starts here -->
+<!--  post start -->
+<div class="container-fluid">
+    <div class="row d-flex">
+        <div class="col-sm-12 col-md-2 mt-4">
+            <div class="py-5 bg-light d-flex flex-column rounded text-center">
+                <a href="#">Introduction</a>
+                <a href="#">Setup</a>
+                <a href="#">Detail</a>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7">
+
+            <!--  post content start -->
+            <div class="mt-4" style="background-color: #fff;">
+                <div style="background-color: #eceff1;">
+                    <div class="d-flex border-bottom">
+                        <div class="py-3  border-end  border-2">
+                            <h6 class="mx-3"> Posted By <a
+                                    href="/author/<%= post.author._id %>"><%= post.author.username %></a></h6>
+                        </div>
+                        <div class="py-3 border-end  border-2">
+                            <h6 class="mx-3"><%= post.readTime %></a></h4>
+                        </div>
+                        <div class="py-3">
+                            <h6 class="mx-3"> <%= moment(post.createdAt) %> </a></h4>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="py-2  border-end border-2">
+                            <h6 class="mx-3">Category : <a
+                                    href="/category/<%= post.category %>"><%= post.category %></a></h6>
+                        </div>
+                        <div class="py-2  border-end border-2">
+                            <h6 class="mx-3">Tags :
+                                <% if(post.tags.length > 0){ %>
+                                <% for(let i=0; i<post.tags.length; i++){ %>
+                                <a href="<%= `/post/${i}` %>"><%=  post.tags[i]%></a>
+                                <% } %>
+
+                                <% }%>
+
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <!--main post content ekhane thakbe-->
+                <div class=" container post-content py-5" style="font-size: 18px ; color: #565656;">
+                    <%- post.body %>
+                </div>
+
+                <div class="d-flex post-footer" style="background-color: #eceff1;">
+
+                    <% if(!user){ %>
+                    <div class="py-2  border-end  border-2">
+                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i class="fas fa-heart mx-3"
+                                id="likeBtn" data-post="<%= post._id %>" style="font-size: 40px;"></i>
+                            <span id="likeCount"><%= post.likes.length %></span>
+                        </h5>
+                    </div>
+                    <div class=" py-2 border-end border-2">
+                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i
+                                class="fa fa-thumbs-down  mx-3" id="disLikeBtn" style="font-size: 40px;"></i>
+                            <span id="dislikeCount"><%= post.dislikes.length %></span>
+                        </h5>
+                    </div>
+                    <% }else{ %>
+                    <div class="py-2  border-end  border-2">
+                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i
+                                class=" <%= post.likes.includes(user._id) ? 'text-success' : '' %> fas fa-heart mx-3"
+                                id="likeBtn" data-post="<%= post._id %>" style="font-size: 40px;"></i>
+                            <span id="likeCount"><%= post.likes.length %></span>
+                        </h5>
+                    </div>
+                    <div class=" py-2 border-end border-2">
+                        <h5 class="mx-3 d-flex align-items-center justify-content-center"> <i
+                                class="<%= post.dislikes.includes(user._id) ? 'text-danger' : '' %> fa fa-thumbs-down  mx-3"
+                                id="disLikeBtn" style="font-size: 40px;"></i>
+                            <span id="dislikeCount"><%= post.dislikes.length %></span>
+                        </h5>
+                    </div>
+                    <% } %>
+
+                    <div class="py-2  border-end  border-2">
+                        <h5 class="mx-3 d-flex align-items-center justify-content-center"> <i
+                                class="fa fa-comment-alt display-6 mx-3 "></i> <%= post.comments.length %>
+                            Comments</h5>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--  post content end -->
+
+            <!--  prev next start -->
+            <div class="mt-5">
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-secondary rounded-0 py-2" style="width: 45%;">Previous</button>
+                    <button class="btn btn-secondary rounded-0 py-2" style="width: 45%;">Next</button>
+                </div>
+            </div>
+            <!--  prev next end -->
+
+            <div class="suggested-card my-4">
+                <h2 class="mb-3">Related Articles</h2>
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 my-2">
+
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the
+                                    card's content.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-4  my-2">
+
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="https://mdbootstrap.com/img/new/standard/nature/113.jpg" class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the
+                                    card's content.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 my-2">
+
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="https://mdbootstrap.com/img/new/standard/nature/115.jpg" class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make up the bulk of
+                                    the
+                                    card's content.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- post comment start -->
+            <div class="my-3 shadow-sm border rounded" style="background: #FFF;">
+
+                <h1 class="m-2 text-center">Leave a comment ! </h1>
+                <input type="text" name="comment" class="form-control" id="comment" placeholder="Please enter to submit"
+                    data-post="<%= post._id %> ">
+                <hr>
+                <% if(!user){ %>
+                <p class="text-center text-muted mt-4">To like and comment please <a href="/auth/login">Login</a>
+                </p>
+                <% }else{ %>
+
+                <div id="comment-holder">
+                    <% if(post.comments.length === 0){ %>
+                    <p class="text-muted text-center">There is no comment</p>
+                    <% }else{ %>
+                    <div class="comments-container" style="margin-left: 10px;">
+                        <% for(let comment of post.comments.reverse()){ %>
+                        <ul id="comments-list" class="comments-list" style="padding-left: 0;">
+                            <!-- single comment with reply starts here -->
+                            <li>
+                                <div class="comment-main-level full-comment-container">
+                                    <div class="comment-avatar"><img src="<%= comment.user.profilePics  %>" alt="">
+                                    </div>
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <h6 class="comment-name by-author"><a
+                                                    href="/author/<%= comment.user._id %>"><%= comment.user.username  %></a>
+                                            </h6>
+                                            <span class="text-dark"><%= moment(comment.createdAt) %></span>
+                                            <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Reply</p>
+                                        </div>
+                                        <div class="comment-content">
+                                            <%= comment.body  %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- this ul for all reply list -->
+                                <ul class="comments-list reply-list">
+                                    <% if(comment.replies.length >0){ %>
+                                    <% for(let reply of comment.replies ){ %>
+                                    <!-- single reply starts here-->
+                                    <li>
+                                        <div class="comment-avatar"><img src="<%= reply.user.profilePics  %>" alt="">
+                                        </div>
+                                        <!-- reply -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name"><a
+                                                        href="/author/<%= reply.user._id %>"><%= reply.user.username  %></a>
+                                                </h6>
+                                                <span> <%= moment(reply.createdAt) %> </span>
+
+                                            </div>
+                                            <div class="comment-content">
+                                                <%= reply.body %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <% } %>
+                                    <% } %>
+                                    <div class="mt-4 replyBox">
+                                        <div class="comment-avatar"><img src="<%= user.profilePics  %> " alt="">
+                                        </div>
+                                        <!-- reply -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name"><a
+                                                        href="/author/<%= user._id %>"><%= user.username %>
+                                                    </a>
+                                                </h6>
+                                            </div>
+                                            <div class="comment-content reply-inputDiv">
+                                                <input type="text" name="reply" class="reply-input" name="" id=""
+                                                    rows="4" data-comment="<%= comment._id %> "
+                                                    value=" @<%= comment.user.username  %>  ">
+                                            </div>
+                                        </div>
+                                        <!-- single reply ends here-->
+                                </ul>
+                            </li>
+                            <!-- single comment with reply ends here -->
+                            </li>
+                        </ul>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <!-- post comment end -->
+
+        </div>
+        <!--  post end -->
+
+        <!-- post sidebars starts here -->
+        <div class="col-sm-12 col-md-3">
+
+            <div class="profile mt-4">
+                <div class="profile__header">
+                    <img class="profile__background img-fluid"
+                        src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" />
+                    <img class="profile__picture img-fluid" src="<%= post.author.profilePics %>" />
+                </div>
+                <div class="profile__content">
+                    <div class="profile__bio">
+                        <h3 class="profile__name"><%= post.author.username  %></h3>
+                    </div>
+                    <div class="profile__links"><a class="profile__link" href="#"><span class="profile__link__text">New
+                                York</span></a><a class="profile__link" href="#"><span class="profile__link__text">Send
+                                Email
+                            </span></a>
+                    </div>
+                    <div class="profile__twitter">
+                        <div class="profile__twitter__stats profile__twitter__stats--followers"><span
+                                class="profile__twitter__stats__count"
+                                id="followerCount"><%= post.author.profile.follower.length %></span><span
+                                class="profile__twitter__stats__label">Followers</span></div>
+                        <div class="profile__twitter__stats profile__twitter__stats--following"><span
+                                class="profile__twitter__stats__count"><%= post.author.profile.following.length %></span><span
+                                class="profile__twitter__stats__label">Following</span></div>
+                        <div class="profile__twitter__follow">
+
+                            <% if(!user){ %>
+                            <button class="profile__twitter__follow__button" id="followBtn"
+                                data-author="<%= post.author._id %> ">Follow</button>
+                            <% }else{ %>
+                            <button class="profile__twitter__follow__button" id="followBtn"
+                                data-author="<%= post.author._id %> "><%= post.author.profile.follower.includes(user._id) ? 'Followed' : 'Follow' %>
+                            </button>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shadow-sm my-3" style="background-color: #fff;">
+                <div class="">
+                    <ul class="list-group">
+                        <li
+                            class="list-group-item d-flex justify-content-center align-items-center green text-light rounded-0">
+                            Category
+                        </li>
+                        <% for(let cat of categories) {%>
+                        <a class="text-dark" href="/category/<%= cat.category %> ">
+                            <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                                <%= cat.category %> <span class="badge green rounded-pill"><%= cat.posts.length %>
+                                </span></li>
+                        </a>
+                        <%}%>           
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- post sidebars ends here -->
+    </div>
+</div>
+<!-- Main post ends here -->
+
+
+
+<%- include('../../partials/footer.ejs')  %>
+                        <script>
+                            var replyBtn = document.querySelectorAll(".reply-btn")
+                            var replyDiv = document.querySelectorAll(".replyBox")
+                            var replyInput = document.querySelectorAll(".reply-input")
+
+                            var commentBoxArray = Array.prototype.slice.call(replyBtn)
+                            var replyDivArray = Array.prototype.slice.call(replyDiv)
+                            var replyInputArray = Array.prototype.slice.call(replyInput)
+
+                            var replyDivIndex = -1;
+                            var displayNoneIndex = -1;
+
+                            for (let i = 0; i < commentBoxArray.length; i++) {
+                                commentBoxArray[i].addEventListener('click', (e) => {
+                                    replyDivArray[i].classList.toggle("replyBox")
+                                    replyInputArray[i].focus()
+                                    replyDivIndex = i
+                                })
+
+                            }
+
+                        </script>
+                        <script src="/scripts/likeCommentBookmark.js"></script>
+
+                        </body>
+
+                        </html>

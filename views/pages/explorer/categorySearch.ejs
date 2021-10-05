@@ -1,0 +1,88 @@
+<%- include('../../partials/head.ejs')  %>
+
+
+<!-- post header starts here -->
+<div class="container-fluid navColor">
+    <div class="row py-2 d-flex justify-content-between align-items-center post-info">
+        <div class="col-9 post-title text-light d-flex align-items-center">
+            <span class="display-6">Category</span>
+        </div>
+        <div class="col-3 text-light">
+            <h6 class="display-6"><span>161</span>K views</h6>
+        </div>
+    </div>
+</div>
+<!-- post header ends here -->
+
+<!-- Main post starts here -->
+<!--  post start -->
+<div class="container-fluid">
+    <div class="row d-flex">
+
+        <div class="offset-md-2 col-sm-12 col-md-7">
+
+            <div class="mt-5">
+                <h5>Post for "<span style="text-transform: uppercase;"><%= category %></span>"</h5>
+                <hr>
+                <% for(post of categories.posts.reverse()){ %>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="/explorer/<%= post._id %>"> <img src="<%= post.thumbnail %>" alt="..."
+                                    class="img-fluid" /></a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <a href="/explorer/<%= post._id %>" class="text-dark">
+                                    <h5><%= post.title %> </h5>
+                                </a>
+                                <div>
+                                    <p style="margin: 0;">By <a href="/author/<%= post.author._id %> "
+                                            style="font-size: 16px;"><%= post.author.username %>
+                                        </a>
+                                        <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
+                                        </span> </p>
+                                    <span> <i class="fa fa-eye"></i> 3M views <span class="mx-2"> <i
+                                                class="mx-1 fa fa-heart"></i>1.3K</span> </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+            <div class="shadow-sm my-3 mt-5" style="background-color: #fff;">
+                <ul class="list-group">
+                    <li
+                        class="list-group-item d-flex justify-content-center align-items-center green text-light rounded-0">
+                        Category
+                    </li>
+                    <% for(let cat of allcategory) {%>
+                    <a class="text-dark" href="/category/<%= cat.category %> ">
+                        <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                            <%= cat.category %> <span class="badge green rounded-pill"><%= cat.posts.length %>
+                            </span></li>
+                    </a>
+                    <%}%>           
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<%- include('../../partials/footer.ejs')  %>
+
+
+                    </body>
+
+                    </html>

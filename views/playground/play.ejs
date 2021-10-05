@@ -1,0 +1,38 @@
+<%- include('../partials/head.ejs')  %>
+
+<div class="container py-5" style="min-height: 600px;max-width:400px ;">
+    <div class="bg-light shadow border-rounded p-5">
+        <h4 class="text-center my-3 ">Upload file !</h4>
+        <form action="/playground/play" method="POST" enctype="multipart/form-data">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form3Example1" class="form-control" name="username" id="username" />
+                        <label class="form-label" for="form3Example1">Username</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="file" id="form3Example1" class="form-control" name="my-file" id="file" />
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4"> Upload </button>
+
+
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs')  %>
+
+</body>
+
+</html>

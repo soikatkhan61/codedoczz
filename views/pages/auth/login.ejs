@@ -1,0 +1,126 @@
+<%- include('../../partials/head.ejs')  %>
+<div class="container-fluid d-flex justify-content-center my-5 " style="width: 60%;">
+    <div class="login_container shadow">
+        <div class="container p-5" style="background-color:#fff">
+            <div class="title login_form_title">
+                SIGN IN AND START PLAYING, FOR FREE
+            </div>
+
+            <div class="social_login">
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-6 my-1">
+                        <button
+                            class="social_button btn btn-lg btn-block d-flex justify-content-center border outline-line"
+                            style="width: 100%;">
+                            <div>
+                                <i class="fab fa-google mx-1"></i>
+                            </div>
+                            <div>
+                                Sign in with Google
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 my-1">
+                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
+                            style="width: 100%;">
+                            <div>
+                                <i class="fab fa-facebook mx-1"></i>
+                            </div>
+                            <div>
+                                Sign in with Facebook
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 my-1">
+                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
+                            style="width: 100%;">
+                            <div>
+                                <i class="fab fa-github mx-1"></i>
+                            </div>
+                            <div>
+                                Sign in with Github
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 my-1">
+                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
+                            style="width: 100%;">
+                            <div>
+                                <i class="fab fa-linkedin mx-1"></i>
+                            </div>
+                            <div>
+                                Sign in with Linkedin
+                            </div>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+            <h5 class="text-center my-4">Or</h5>
+
+            <form action="/auth/login" method="POST">
+
+
+                <!-- Email input -->
+                <div class="form-outline mb-3">
+                    <input type="text" id="form3Example1"
+                        class="form-control border rounded-0 my-2 <%= error.email ? 'is-invalid': '' %>" name="email"
+                        id="email" value="<%= value.email ? value.email : '' %>" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                    <div class="invalid-feedback">
+                        <%= error.email && error.email %>
+                    </div>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                    <input type="password" id="form3Example1"
+                        class="form-control border rounded-0 my-2 <%= error.password ? 'is-invalid': '' %>"
+                        name="password" id="password" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                    <div class="invalid-feedback">
+                        <%= error.password && error.password %>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I agree to the <span><a class="text-succes"
+                                href="#">Privacy Policy </a></span>and the
+                        <span><a class="text-succes" href="#">Cookies
+                                Policy </a></span>(required)</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1"><a class="text-dark" href="#">I wish to
+                            receive the newsletters (about once a
+                            month)</a></label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn green text-light btn-lg btn-block my-4" style="width:100%">SIGN
+                    IN</button>
+            </form>
+
+
+
+            <p class="text-center"><a class="text-dark" href="#" style="text-decoration: underline;">Already have an
+                    account?</a></p>
+        </div>
+    </div>
+</div>
+
+<%- include('../../partials/footer.ejs')  %>
+
+</body>
+
+</html>
+
+
+<!-- login -->

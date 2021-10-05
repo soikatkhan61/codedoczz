@@ -1,0 +1,362 @@
+.text-white {
+    color: #e0e0e0;
+  }
+  .bg-dark {
+    background-color: #363636;
+  }
+  .page {
+    height: 768px;
+  }
+  body {
+    min-height: 100vh;
+  }
+  div.page {
+    overflow: hidden;
+    height: auto;
+    position: relative;
+  }
+  aside#menu-bar {
+    height: 40000px;
+    position: fixed;
+    padding-top: 50px;
+    z-index: 998;
+    overflow: hidden;
+    color: #eeeeee;
+  }
+  aside#menu-bar h1 {
+    background-color: black;
+    display: inline-block;
+    padding: 15px 30px;
+    width: 150px;
+    height: 70px;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+  }
+  aside#menu-bar h1 small {
+    vertical-align: 15px;
+  }
+  aside#menu-bar ul {
+    padding: 0;
+    list-style: none;
+  }
+  aside#menu-bar .menu {
+    position: absolute;
+    top: 170px;
+    width: 200px;
+  }
+  aside#menu-bar ul.social-icons {
+    margin-top: 50px;
+  }
+  aside#menu-bar li {
+    font-size: 2em;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+  }
+  aside#menu-bar li:hover,
+  aside#menu-bar li:focus,
+  aside#menu-bar li.active {
+    background-color: #282828;
+  }
+  aside#menu-bar li:hover a,
+  aside#menu-bar li:focus a,
+  aside#menu-bar li.active a,
+  aside#menu-bar li:hover a:active,
+  aside#menu-bar li:focus a:active,
+  aside#menu-bar li.active a:active,
+  aside#menu-bar li:hover a:visited,
+  aside#menu-bar li:focus a:visited,
+  aside#menu-bar li.active a:visited {
+    color: #bdbdbd;
+  }
+  aside#menu-bar li a,
+  aside#menu-bar li a:active,
+  aside#menu-bar li a:visited {
+    color: #eeeeee;
+    display: inline-block;
+  }
+  aside#menu-bar li a:hover,
+  aside#menu-bar li a:focus {
+    text-decoration: none;
+  }
+  aside#menu-bar li i {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 40px;
+    padding: 10px 0 10px 10px;
+  }
+  aside#menu-bar li span {
+    font-size: 0.8em;
+    vertical-align: text-top;
+    padding-left: 20px;
+  }
+  div.sidebar-toggle {
+    position: fixed;
+    z-index: 999;
+    width: 50px;
+    height: 40px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 2em;
+    color: #eeeeee;
+    cursor: pointer;
+  }
+  div.sidebar-toggle .toggle-icon:after {
+    content: "\f060";
+  }
+  div.main-content {
+    width: auto;
+    overflow: hidden;
+    padding-left: 200px;
+  }
+  div.main-content .section {
+    padding: 50px 20px;
+    color: #f5f5f5;
+  }
+  div.main-content .section:nth-child(2) {
+    background-color: #8e8e8e;
+  }
+  div.main-content .section:nth-child(3) {
+    background-color: #00ace2;
+  }
+  div.main-content .section:nth-child(4) {
+    background-color: #ff8d55;
+  }
+  div.main-content .section .section-header {
+    font-size: 4em;
+    margin-bottom: 50px;
+  }
+  div#welcome .jumbotron {
+    padding: 0;
+    margin: 0;
+    height: 768px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#00cf65), to(#25fca8));
+    background-image: -webkit-linear-gradient(#00cf65, #25fca8);
+    background-image: linear-gradient(#00cf65, #25fca8);
+  }
+  #quote {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  #quote blockquote {
+    border: 0;
+    color: #fafafa;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  #quote blockquote p {
+    font-size: 2em;
+    font-weight: bolder;
+  }
+  div#about p {
+    font-size: 1.2em;
+    padding-top: 40px;
+  }
+  div#about #my-photo {
+    margin-top: -20px;
+  }
+  div#portfolio .project {
+    margin-bottom: 30px;
+  }
+  div#portfolio .window {
+    border: 1px solid #bababa;
+    -webkit-border-top-left-radius: 3px;
+            border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+            border-top-right-radius: 3px;
+  }
+  div#portfolio .window-panel {
+    width: 100%;
+    height: 20px;
+    background-color: #bababa;
+  }
+  div#portfolio .window-panel i.x {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    margin-left: 8px;
+  }
+  div#portfolio .window-panel i.x:nth-child(1) {
+    background-color: #e25d5d;
+  }
+  div#portfolio .window-panel i.x:nth-child(2) {
+    background-color: #ffaa19;
+  }
+  div#portfolio .window-panel i.x:nth-child(3) {
+    background-color: #00b548;
+  }
+  div#contact .form-control,
+  div#contact button {
+    font-size: 2em;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+  div#contact .form-control::-webkit-input-placeholder,
+  div#contact button::-webkit-input-placeholder {
+    color: white;
+  }
+  div#contact .form-control:-moz-placeholder,
+  div#contact button:-moz-placeholder {
+    color: white;
+  }
+  div#contact .form-control::-moz-placeholder,
+  div#contact button::-moz-placeholder {
+    color: white;
+  }
+  div#contact .form-control:-ms-input-placeholder,
+  div#contact button:-ms-input-placeholder {
+    color: white;
+  }
+  div#contact .form-control:focus,
+  div#contact button:focus,
+  div#contact .form-control:hover,
+  div#contact button:hover {
+    border-color: white;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  div#contact input.form-control {
+    height: 60px;
+  }
+  div#contact #form {
+    padding-bottom: 30px;
+  }
+  div#contact #my-message p {
+    font-size: 1.4em;
+  }
+  div#contact #my-message i.fa-smile-o {
+    font-weight: bold;
+  }
+  div#contact #my-message i.fa-coffee {
+    font-size: 8em;
+  }
+  div#credits {
+    background-color: #494949;
+  }
+  div#credits h3 {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
+    display: inline-block;
+    width: 200px;
+  }
+  div#credits p {
+    padding-top: 18px;
+    padding-bottom: 10px;
+    font-size: 1.4em;
+  }
+  div#credits i {
+    vertical-align: text-top;
+  }
+  div#credits a {
+    color: #00e0ff;
+  }
+  footer#footer {
+    background-color: #2f2f2f;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.2em;
+  }
+  footer#footer span {
+    font-size: 2em;
+    padding-right: 5px;
+    vertical-align: sub;
+  }
+  .logo {
+    font-family: 'Satisfy', cursive;
+  }
+  .gray-touch:hover,
+  .gray-touch:focus {
+    color: #777777;
+  }
+  @media (min-width: 1200px) {
+    aside#menu-bar {
+      width: 200px;
+    }
+    div.main-content {
+      padding-left: 200px;
+    }
+    div.sidebar-toggle {
+      left: 75px;
+    }
+    div#about #my-photo {
+      padding: 0 70px;
+      max-width: 450px;
+      float: right;
+    }
+  }
+  @media (max-width: 1199px) {
+    aside#menu-bar {
+      width: 50px;
+    }
+    aside#menu-bar li span,
+    aside#menu-bar h1 {
+      display: none;
+    }
+    div.main-content {
+      padding-left: 50px;
+    }
+    div.sidebar-toggle .toggle-icon:after {
+      content: "\f061";
+    }
+    div#about #my-photo {
+      padding: 0 50px;
+    }
+  }
+  @media (max-width: 991px) {
+    div#about #my-photo {
+      padding: 0 120px;
+    }
+  }
+  @media (max-width: 767px) {
+    aside#menu-bar {
+      width: 0;
+    }
+    aside#menu-bar li span,
+    aside#menu-bar h1 {
+      display: inline-block;
+    }
+    aside#menu-bar ul.social-icons li {
+      float: left;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
+    aside#menu-bar ul.social-icons li i {
+      text-align: center;
+    }
+    aside#menu-bar ul.social-icons li span {
+      display: none;
+    }
+    div.sidebar-toggle .toggle-icon:after {
+      content: "\f0c9";
+    }
+    div.main-content {
+      padding-left: 0;
+    }
+    div#welcome .jumbotron {
+      height: 600px;
+    }
+    div#about #my-photo {
+      padding: 0 10px;
+    }
+    div#quote blockquote p {
+      font-size: 1.2em;
+    }
+  }
+  

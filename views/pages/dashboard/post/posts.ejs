@@ -1,0 +1,116 @@
+<%- include('../../../partials/head.ejs')  %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <%- include('../../../partials/sidebar.ejs')  %>
+        </div>
+
+        <div class="col-md-9 my-5">
+            <div class="card card-body mb-2 ">
+                <div class="py-2 rounded navColor">
+                    <h5 class="text-center text-light">Recent posts</h5>
+                </div>
+                <hr>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <% if(posts.length ===0){ %>
+                    <div class="text-center text-muted">
+                        <h1>There is no post available right now</h1>
+                        <a href="/posts/create" class="btn btn-primary">Crete a post now</a>
+                    </div>
+                    <% }else{ %>
+
+                    <% for (let post of posts) {%>
+                    <div class="col">
+                        <div class="card h-100">
+                            <% if(post.thumbnail){ %>
+                            <img src="<%= post.thumbnail%>" class="card-img-top" alt="<%= post.title  %>" />
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= post.title%></h5>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">106k views | 104 comments</small>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="card card-body">
+                <div class="py-2 rounded navColor">
+                    <h5 class="text-center text-light">Most populer posts</h5>
+                </div>
+                <hr>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <% if(posts.length ===0){ %>
+                    <div class="text-center text-muted">
+                        <h1>There is no post available right now</h1>
+                        <a href="/posts/create" class="btn btn-primary">Crete a post now</a>
+                    </div>
+                    <% }else{ %>
+
+                    <% for (let post of posts) {%>
+                    <div class="col">
+                        <div class="card h-100">
+                            <% if(post.thumbnail){ %>
+                            <img src="<%= post.thumbnail%>" class="card-img-top" alt="<%= post.title  %>" />
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= post.title%></h5>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">106k views | <%= post.comments.length %> Comments </small>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="card card-body">
+                <div class="py-2 rounded navColor">
+                    <h5 class="text-center text-light">All posts</h5>
+                </div>
+                <hr>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <% if(posts.length ===0){ %>
+                    <div class="text-center text-muted">
+                        <h1>There is no post available right now</h1>
+                        <a href="/posts/create" class="btn btn-primary">Crete a post now</a>
+                    </div>
+                    <% }else{ %>
+
+                    <% for (let post of posts) {%>
+                    <div class="col">
+                        <div class="card h-100">
+                            <% if(post.thumbnail){ %>
+                            <img src="<%= post.thumbnail%>" class="card-img-top" alt="<%= post.title  %>" />
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= post.title%></h5>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">106k views | <%= post.comments.length %> Comments </small>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <%- include('../../../partials/footer.ejs')  %>
+
+    </body>
+
+    </html>

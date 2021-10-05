@@ -1,0 +1,197 @@
+<%- include('../../partials/head.ejs')  %>
+
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            <div class="card box-shadow">
+                <div class="card-body">
+                    <h3>Hello</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+            <section class="mb-5">
+                <a href="/explorer?filter=latest"
+                    class="btn <%= filter==='latest' ? 'btn-primary' : 'btn-secondary' %> ">Latest</a>
+
+                <a href="/explorer?filter=week"
+                    class="btn <%= filter=== 'week' ? 'btn-primary' : 'btn-secondary' %> ">Week</a>
+
+                <a href="/explorer?filter=month"
+                    class="btn <%= filter=== 'month' ? 'btn-primary' : 'btn-secondary' %> ">Month</a>
+
+                <a href="/explorer?filter=all"
+                    class="btn <%= filter=== 'all' ? 'btn-primary' : 'btn-secondary' %> ">All</a>
+
+            </section>
+
+            <section>
+                <% if(posts.length === 0){ %>
+                <p class="text-center text-muted">There is no post to show</p>
+
+                <% }else{ %>
+                <% for(let post of posts){ %>
+                <div class="newsfeed-card card card-body mb-3">
+                    <% if(post.thumbnail){ %>
+                    <img class="img-fluid mb-2" src="<%= post.thumbnail %> " alt="">
+                    <% } %>
+
+                    <div class="c-header d-flex">
+                        <div class="profile-pic"><img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg"
+                                alt=""></div>
+                        <div class="card-detail">
+                            <p class="name"><%= post.author.username %></p>
+                            <p class="posted"><%= moment(post.createdAt) %></p>
+                        </div>
+
+                    </div>
+
+                    <div class="c-body" style="padding: 0px 10px 15px;">
+                        <a href="explorer/<%= post._id %> " class="text-dark">
+                            <h5><%= post.title %> </h5>
+                            <p class="mb-4"> <%= truncate(post.body) %> </p>
+                        </a>
+                        <div class="c-footer">
+                            <div class="like">
+                                <i class="fas fa-heart" id="likeBtn" data-post="<%= post._id %>"></i>
+                                <span id="likeCount"><%= post.likes.length %></span>
+                            </div>
+                            <div class="comment">
+                                <i class="fas fa-comment"></i>
+                                <span><%= post.comments.length %></span>
+                            </div>
+                            <div class="share">
+                                <i class="fas fa-share"></i>
+                                <span>12k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+                <% } %>
+            </section>
+
+            <% if(totalPage > 1){ %>
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item <%= currentPage ===1 ? 'disabled' : '' %> ">
+                        <a class="page-link"
+                            href="<%= `/explorer?filter=${filter}&page=${currentPage-1}` %> ">Previous</a>
+                    </li>
+
+                    <% for(let i=1;i<totalPage;i++){ %>
+
+                    <li class="page-item <%= currentPage === i ? 'active' : '' %> ">
+                        <a class="page-link" href="<%= `/explorer?filter=${filter}&page=${i}` %> "><%= i %> </a>
+                    </li>
+
+                    <% } %>
+
+                    <li class="page-item <%= currentPage === totalPage ? 'disabled' : '' %> ">
+                        <a class="page-link" href="<%= `/explorer?filter=${filter}&page=${currentPage+1}` %> ">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <% } %>
+        </div>
+
+        <div class="col-sm-12 col-md-3">
+            <div class="card-body">
+                <h5>Sponsored</h5>
+                <ul>
+                    <li>HTML</li>
+                    <li>HTML</li>
+                    <li>HTML</li>
+                </ul>
+            </div>
+
+            <div class="my-3">
+                <ul class="list-group">
+                    <li class="list-group-item  d-flex justify-content-center align-items-center text-dark rounded-0">
+                        Category
+                    </li>
+                    <% for(let cat of categories) {%>
+                    <a class="text-dark" href="/category/<%= cat.category %> ">
+                        <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                            <%= cat.category %> <span class="badge text-dark rounded-pill"><%= cat.posts.length %>
+                            </span>
+                        </li>
+                    </a>
+                    <%}%>           
+                </ul>
+            </div>
+
+            <div class="my-3">
+                <ul class="list-group">
+                    <li class="list-group-item  d-flex justify-content-center align-items-center text-dark rounded-0">
+                        Top Author
+                    </li>
+                    <% for(let tu of topUser) {%>
+                    <% var sum = 0;  %>
+                    <%   for(post of tu.posts){ %>
+                    <%  sum = sum + post.likes.length %>
+                    <%}%>
+                    <a class="text-dark" href="/author/<%=  %> ">
+                    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                        <%= tu.name %> <span class="badge text-dark rounded-pill"> <%= sum %>
+                        </span>
+                    </li>
+                    </a>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../../partials/footer.ejs')  %>
+
+                    <script>
+                        window.onload = function () {
+                            const likeBtn = document.getElementById('likeBtn')
+                            const dislikeBtn = document.getElementById('disLikeBtn')
+
+                            const likeCount = document.getElementById('likeCount')
+                            const dislikeCount = document.getElementById('dislikeCount')
+
+
+                            likeBtn.addEventListener('click', function (e) {
+                                let postId = likeBtn.dataset.post
+
+                                reqLikeDislike('likes', postId)
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        let likeText = `${data.totalLikes}`
+                                        let dislikeText = `${data.totaldisLikes}`
+
+                                        likeCount.innerHTML = likeText
+                                        dislikeCount.innerHTML = dislikeText
+                                    })
+                                    .catch(e => {
+                                        console.log(e)
+                                    })
+                            })
+
+
+                            function reqLikeDislike(type, postId) {
+                                let headers = new Headers()
+                                headers.append('Accept', 'Application/JSON')
+                                headers.append('Content-Type', 'Application/JSON')
+
+                                let req = new Request(`/api/${type}/${postId}`, {
+                                    method: "GET",
+                                    headers,
+                                    mode: 'cors'
+                                })
+
+                                return fetch(req)
+                            }
+                        }
+                    </script>
+
+                    </body>
+
+                    </html>

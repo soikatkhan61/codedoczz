@@ -1,0 +1,115 @@
+<%- include('../../../partials/head.ejs')  %>
+<script>
+    function update() {
+        var d = document.getElementById('country');
+        var dText = d.options[d.selectedIndex].text;
+        document.getElementById('result').value = dText
+    }
+</script>
+<div class="container-fluid">
+
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <%- include('../../../partials/sidebar.ejs')  %>
+        </div>
+
+        <div class="col-md-7 my-5">
+            <div class="card card-body  py-4">
+                <h2 class="my-3">Add new post</h2>
+                <form action="/posts/create" method="post" enctype="multipart/form-data">
+                    <div class="form-outline">
+
+                        <input type="text" name="title" id="title"
+                            class="form-control <%= error.title ? 'is-invalid' : '' %> "
+                            value="<%= value.title ? value.title : '' %> ">
+                        <label class="form-label" for="title">Enter your post title</label>
+
+                        <div class="invalid-feedback"><%= error.title %> </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tiny-mce-post-body">Enter your post body</label>
+                        <textarea name="body" id="tiny-mce-post-body"
+                            class="form-control <%= error.body ? 'is-invalid' : '' %>"
+                            value="<%= value.body ? value.body : '' %> "></textarea>
+                        <div class="invalid-feedback"><%= error.body %> </div>
+                    </div>
+
+
+
+                    <div class="input-group my-3">
+                        <div class="custom-file mx-2">
+                            <input type="file" name="post-thumbnail" class="custom-file-input">
+                            <label for="inputGroupFile" class="custom-file-label"></label>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn green text-light" value="Create Post">
+
+
+            </div>
+        </div>
+
+        <div class="col-md-3 mt-5">
+            <div class="publish">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Publish</h3>
+                    </div>
+                    <div class="card-body pb-3">
+                        <button class="btn btn-sm my-2">Save Draft</button>
+                        <p> <i class="fa fa-eye mx-2"></i>Visibility: <span>Public</span></p>
+                        <p> <i class="fa fa-calendar mx-2"></i>Publish: <span>Immediately</span></p>
+                    </div>
+                </div>
+
+                <div class="category my-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Category</h3>
+                        </div>
+                        <div class="card-body pb-4">
+                            <select id="country" class="py-2 px-4" onchange="update();">
+                                <option class="py-2 px-5"" value=" none">Select</option>
+                                <% for (let cat of categories){ %>
+                                <option class="py-2 px-5"" value=" <%= cat.category %>"><%= cat.category %> </option>
+                                <% } %>
+                            </select>
+                            <input id="result" name="category" class="d-none">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tags my-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Tags</h3>
+                        </div>
+                        <div class="card-body pb-3">
+                            <div class="form-outline my-3">
+                                <input type="text" name="tags" id="tags" class="form-control"
+                                    value="<%= value.tags ? value.tags : '' %> ">
+                                <label class="form-label" for="tags">Enter some tags</label>
+                            </div>
+                            <p>Tags should be separeted by a comma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../../../partials/footer.ejs')  %>
+<script src="https://cdn.tiny.cloud/1/ainx8rs3dres3llj5w6l3q3nnwk2sni14kp7k20x5q36aryp/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script src="/scripts/tinymce.js"></script>
+
+
+</body>
+
+</html>

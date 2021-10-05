@@ -1,0 +1,52 @@
+<%- include('../../partials/head.ejs')  %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-2">
+            <%- include('../../partials/sidebar.ejs')  %>
+        </div>
+
+        <div class="col-sm-12 col-md-10">
+            <div class="mt-5">
+                <div class="row">
+                    <div class="col-md-6 offset-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Add new</h4>
+                                <form action="/category" method="post">
+                                    <input type="text" class="form-control" name="category">
+                                    <button type="submit" class="btn green mt-4 text-light"> Add </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 ">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-center">list of all category</h5>
+                                <hr>
+                                <ul>
+                                    <% for(let cat of catgories) {%>
+                                    <li><%= cat.category %> </li>
+                                    <% }%>
+                                </ul>
+                            </div>
+                            <h6>Test</h6>
+                            <hr>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('../../partials/footer.ejs')  %>
+
+</body>
+
+</html>

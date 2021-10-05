@@ -1,0 +1,389 @@
+<%- include('./partials/head.ejs')  %>
+
+<!-- hero home page starts here -->
+<section class="homepage_hero" style="height: 75vh;">
+    <div class="container py-5">
+        <div class="row my-5">
+            <div class="col-sm-12 col-md-6">
+                <h1 class="">Ocean of <span class="fw-bold text-succes"> SOURCE CODE !</span></h1>
+                <h5 class="mt-4">Our goal is make your life little bit easier.</h5>
+                <h5>Choose your favorite one and Download it 3</h5>
+                <button class="btn green text-light mt-5 px-5 py-3">See Latest</button>
+            </div>
+
+            <div class="d-none d-md-block col-md-6">
+                <img class="homepage_image" src="images/codedocz_homepage.svg" alt="" width="500px" height="300px">
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- hero home page  endds here -->
+
+
+<!-- brand promotion starts here -->
+
+<section class="brand_promotion navColor border-top border-success border-3">
+    <div class="container text-center text-light py-3">
+        <h3 class="">Do you need website?</h3>
+        <p>ENJOY PREMIUM WEBSITE AT AFFORDABLE PRICE</p>
+        <button class="btn green text-light mt-2 mb-3">CHECK IT NOW</button>
+    </div>
+</section>
+
+<!-- brand promotion  endds here -->
+
+
+<!-- main section starts here -->
+
+<section class="bg-color pb-5 main_section container d-flex">
+
+    <div>
+        <!-- recent items starts here -->
+        <div class="latest-items">
+
+            <div class="container">
+                <h3 class="py-2">Latest Items</h3>
+                <div class="row">
+                    <% for(let post of posts){ %>
+                    <div class="col-sm-6 col-md-4 col-lg-4 my-2">
+                        <div class="card h-100">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
+                                <a href="/explorer/<%= post._id %> ">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <a href="/explorer/<%= post._id %>" class="text-dark"><%= post.title %></a>
+                                </p>
+                                <p style="margin: 0;">By <a href="/author/<%= post.author._id %> "
+                                        style="font-size: 16px;">
+                                        <%= post.author.username %> </a>
+                                    <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
+                                    </span> </p>
+                                <span> <i class="fa fa-eye"></i> 3M views <span class="mx-2"> <i
+                                            class="fa fa-heart"></i>
+                                        1.3K</span> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- recent items ends here -->
+
+        <!-- Latest items starts here -->
+        <div class="latest-items">
+
+            <div class="container mt-3">
+                <h3 class="py-2">Latest Items</h3>
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card shadow" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card shadow" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-around my-2">
+
+                        <div class="card shadow" style="width:16rem;">
+                            <img src="images/thumb.jpg" alt="">
+                            <div class="card-body">
+                                <h6 style="font-size:0.8rem; color:#030303;">Baba Amay Daktase (Tapori Dance) Deejay
+                                    Sijan | Fakir Saheb | Bangla Folk Song | Remix Song 2021</h6>
+                                <p class="text-muted" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                            ago</span></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest items ends here -->
+    </div>
+
+    <!-- sidebars starts here -->
+    <div class="d-none sidebar d-lg-block" style="width: 30%;">
+        <h3 class="py-2">Recent Items</h3>
+        <div class="card mb-1">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="/images/thumb.jpg" alt="" class="img-thumbnail" style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="col-7">
+                    <div class="p-1">
+                        <h6 style="font-size:0.8rem; color:#030303;">JavaScript Tweet Box with Character Limit
+                            Highlighting in JavaScript </h6>
+                        <p class="text-muted card-text" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                    ago</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-1">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="assets/images/thumb.jpg" alt="" class="img-thumbnail"
+                        style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="col-7">
+                    <div class="p-1">
+                        <h6 style="font-size:0.8rem; color:#030303;">JavaScript Tweet Box with Character Limit
+                            Highlighting in JavaScript </h6>
+                        <p class="text-muted card-text" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                    ago</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-1 shadow">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="assets/images/thumb.jpg" alt="" class="img-thumbnail"
+                        style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="col-7">
+                    <div class="p-1">
+                        <h6 style="font-size:0.8rem; color:#030303;">JavaScript Tweet Box with Character Limit
+                            Highlighting in JavaScript </h6>
+                        <p class="text-muted card-text" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                    ago</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-1 shadow">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="assets/images/thumb.jpg" alt="" class="img-thumbnail"
+                        style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="col-7">
+                    <div class="p-1">
+                        <h6 style="font-size:0.8rem; color:#030303;">JavaScript Tweet Box with Character Limit
+                            Highlighting in JavaScript </h6>
+                        <p class="text-muted card-text" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                    ago</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-1 shadow">
+            <div class="row g-0">
+                <div class="col-5">
+                    <img src="assets/images/thumb.jpg" alt="" class="img-thumbnail"
+                        style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="col-7">
+                    <div class="p-1">
+                        <h6 style="font-size:0.8rem; color:#030303;">JavaScript Tweet Box with Character Limit
+                            Highlighting in JavaScript </h6>
+                        <p class="text-muted card-text" style="font-size:0.7rem"><span>5.2M views . <span>2 months
+                                    ago</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="green text-center">
+            <button class="btn btn-block text-white">See More</button>
+        </div>
+
+        <div class="mt-2">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-center align-items-center green text-light rounded-0">
+                    Category
+                </li>
+                <% for(let cat of categories) {%>
+                <a class="text-dark" href="/category/<%= cat.category %> ">
+                    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                        <%= cat.category %> <span class="badge green rounded-pill"><%= cat.posts.length %>
+                        </span></li>
+                </a>
+                <%}%>           
+            </ul>
+        </div>
+    </div>
+    <!-- sidebars ends here -->
+
+</section>
+
+<!-- main section ends here -->
+
+
+
+
+
+<!-- Contuct us starts here -->
+
+<section>
+    <div class="container-fluid mb-5">
+        <div class="container shadow">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 text-light p-5 green">
+                    <h4>
+                        Let's get in touch. <br>
+                    </h4>
+                    <p>Tell me about your project.</p>
+
+                    <ul class="mt-5" style="padding-left:0">
+                        <li class="mb-3"><a href="#" class="text-light"><i class="fa fa-home"></i><span
+                                    class="mx-1"></span>Dhaka,Bangladesh</a></li>
+                        <li class="mb-3"><i class="fa fa-phone"></i><span class="mx-1"></span>06445-101765</li>
+                        <li class="mb-3"><a href="#" class="text-light"><i class="fa fa-envelope"></i><span
+                                    class="mx-1"></span>support@codedocz.com</a></li>
+                    </ul>
+
+
+                    <div class="mt-5" style="padding-left:0">
+                        <span class="fs-4 mx-1"><a class="text-light" href=""><i class="fab fa-youtube"></i></a></span>
+                        <span class="fs-4 mx-1"><a class="text-light" href=""><i class="fab fa-facebook"></i></a></span>
+                        <span class="fs-4 mx-1"><a class="text-light" href=""><i class="fab fa-linkedin"></i></a></span>
+                        <span class="fs-4 mx-1"><a class="text-light" href=""><i class="fab fa-twitter"></i></a></span>
+                        <span class="fs-4 mx-1"><a class="text-light" href=""><i class="fab fa-github"></i></a></span>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-8 p-5" style="background-color: #fff">
+                    <h2>
+                        Get in touch
+                    </h2>
+                    <form>
+                        <div class="row contuct-form">
+                            <div class="form-group col-md-6">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="" class="form-control  border-0 border-bottom rounded-0">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="text" name="" class="form-control border-0 border-bottom rounded-0">
+                            </div>
+                        </div>
+
+                        <div class="form-outline mt-3">
+                            <input type="text" name="" class="form-control">
+                            <label class="form-label">Subject</label>
+                        </div>
+
+                        <div class="form-outline mt-3">
+                            <textarea type="text" name=""
+                                class="form-control border-0 border-bottom rounded-0"></textarea>
+                            <label class="form-label ">Message</label>
+                        </div>
+
+                        <button class="btn mt-3 text-light green">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contuct us ends here -->
+
+
+
+
+<%- include('./partials/footer.ejs')  %>
+
+                </body>
+
+                </html>
