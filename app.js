@@ -1,14 +1,17 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
+const config = require('config')
 
 const setMiddleware = require('./middleware/middleware')
 const setRoutes = require('./routes/routes')
 
 //database connection
-const MONGODB_URI ='mongodb+srv://soikatkhan61:FUCKMYMIND69@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const MONGODB_URI =`mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
 const app = express()
 
+console.log(config.get("name"));
 
 //setup view engine
 app.set('view engine' ,'ejs')
@@ -40,7 +43,7 @@ app.use((error,req,res,next)=>{
 
 //create server
 const PORT = process.env.PORT || 8080
-mongoose.connect(MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true,useFindAndModify:false})
+mongoose.connect(MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology: true})
 .then(()=>{
     console.log("DATABASE CONNECTED")
     app.listen(PORT,()=>{

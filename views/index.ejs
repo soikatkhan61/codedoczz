@@ -45,6 +45,11 @@
             <div class="container">
                 <h3 class="py-2">Latest Items</h3>
                 <div class="row">
+                    <% if(posts.length ===0){ %>
+                    <div class="text-center text-muted">
+                        <h1>There is no posts available right now</h1>
+                    </div>
+                    <% }else{ %>
                     <% for(let post of posts){ %>
                     <div class="col-sm-6 col-md-4 col-lg-4 my-2">
                         <div class="card h-100">
@@ -70,7 +75,7 @@
                         </div>
                     </div>
                     <% } %>
-
+                    <% } %>
 
                 </div>
             </div>
