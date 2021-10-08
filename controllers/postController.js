@@ -28,8 +28,8 @@ exports.createPostGetController = async (req,res,next) =>{
 exports.createPostPostController = async(req,res,next) =>{
     let {title,body,tags,category} = req.body
     let errors = validationResult(req).formatWith(errorFormatter)
-    
     if(!errors.isEmpty()){
+        let categories = await Category.find()
         res.render('pages/dashboard/post/createPost',{
             title: 'Create a new post',
             error :errors.mapped(),
