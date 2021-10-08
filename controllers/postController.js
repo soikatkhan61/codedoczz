@@ -28,6 +28,7 @@ exports.createPostGetController = async (req,res,next) =>{
 exports.createPostPostController = async(req,res,next) =>{
     let {title,body,tags,category} = req.body
     let errors = validationResult(req).formatWith(errorFormatter)
+
     if(!errors.isEmpty()){
         let categories = await Category.find()
         res.render('pages/dashboard/post/createPost',{
@@ -73,9 +74,11 @@ exports.createPostPostController = async(req,res,next) =>{
     try{
         let createdPost = await post.save()
         let findCategory = await Category.findOne({category:category})
+        let profile = await Profile.findOne({user:req.user._id})
+        
         await Profile.findOneAndUpdate(
             {user:req.user._id},
-            {$push:{'posts':createdPost._id}}
+            {$push:{'posts':createdPost._id},totalPost:profile.totalPost+1}
         )
         await Category.findOneAndUpdate(
             {_id:findCategory._id},

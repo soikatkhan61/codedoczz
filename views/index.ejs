@@ -53,7 +53,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-4 my-2">
                         <div class="card h-100">
                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
+                                <img src="https://mdbootstrap.com/img/new/standard/nature/11<%= Math.floor(Math.random() * 10) + 1; %>.jpg" class="img-fluid" />
                                 <a href="/explorer/<%= post._id %> ">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                 </a>
@@ -67,7 +67,7 @@
                                         <%= post.author.username %> </a>
                                     <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
                                     </span> </p>
-                                <span> <i class="fa fa-eye"></i> 3M views <span class="mx-2"> <i
+                                <span> <i class="fa fa-eye"></i> <%= post.views %> views <span class="mx-2"> <i
                                             class="fa fa-heart"></i>
                                         1.3K</span> </span>
                             </div>

@@ -140,7 +140,7 @@ exports.singlePostGetController = async (req, res, next) => {
             error.status(404)
             throw error
         }
-
+        await Post.findByIdAndUpdate({_id:postId},{views:post.views + 1},{new:true})
         let bookmarks = []
 
         if (req.user) {

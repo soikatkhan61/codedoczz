@@ -53,7 +53,7 @@ function generateFilterObject(filter){
 exports.homeGetController =async (req,res,next) =>{
     let filter = req.query.filter || 'latest'
     let currentPage = parseInt(req.query.page) || 1
-    let itemPerPage = 5
+    let itemPerPage = 6
 
     var {order,filterObj} = generateFilterObject(filter.toLowerCase())
 

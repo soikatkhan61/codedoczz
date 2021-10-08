@@ -36,7 +36,7 @@ const profileSchema = new Schema({
   
     totalPost:{
         type:Number,
-        default:'0'
+        default:0
     },
     totalLikes:{
         type:Number,

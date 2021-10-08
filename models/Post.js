@@ -29,6 +29,10 @@ const postSchema = new Schema({
     },
     thumbnail:String,
     readTime:String,
+    views:{
+        type:Number,
+        default:0
+    },
     likes:[{
         type:Schema.Types.ObjectId,
         ref: 'User'
