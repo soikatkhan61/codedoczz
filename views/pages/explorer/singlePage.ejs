@@ -3,14 +3,14 @@
 
 <!-- post header starts here -->
 <div class="container-fluid navColor">
-    <div class="row py-2 d-flex justify-content-between align-items-center post-info">
-        <div class="col-9 post-title text-light d-flex align-items-center">
-            <span class="display-6"><%= post.title %></span>
-        </div>
-        <div class="col-3 text-light">
-            <h6 class="display-6"><span>161</span>K views</h6>
-        </div>
+    <div class="row py-2 d-flex justify-content-between align-items-center>
+        <div class=" col-9 post-title text-light d-flex align-items-center">
+        <span class="display-6"><%= post.title %></span>
     </div>
+    <div class="col-3 text-light">
+        <h6 class="display-6"><span>161</span>K views</h6>
+    </div>
+</div>
 </div>
 <!-- post header ends here -->
 
@@ -19,7 +19,7 @@
 <div class="container-fluid">
     <div class="row d-flex">
         <div class="col-sm-12 col-md-2 mt-4">
-            <div class="py-5 bg-light d-flex flex-column rounded text-center">
+            <div class="py-5 bg-light d-flex flex-column rounded text-center box-shadow">
                 <a href="#">Introduction</a>
                 <a href="#">Setup</a>
                 <a href="#">Detail</a>
@@ -28,79 +28,77 @@
         <div class="col-sm-12 col-md-7">
 
             <!--  post content start -->
-            <div class="mt-4" style="background-color: #fff;">
-                <div style="background-color: #eceff1;">
-                    <div class="d-flex border-bottom">
-                        <div class="py-3  border-end  border-2">
-                            <h6 class="mx-3"> Posted By <a
-                                    href="/author/<%= post.author._id %>"><%= post.author.username %></a></h6>
-                        </div>
-                        <div class="py-3 border-end  border-2">
-                            <h6 class="mx-3"><%= post.readTime %></a></h4>
-                        </div>
-                        <div class="py-3">
-                            <h6 class="mx-3"> <%= moment(post.createdAt) %> </a></h4>
-                        </div>
+            <div class="mt-4 box-shadow" style="background-color: #fff;">
+                <div class="d-flex border-bottom">
+                    <div class="py-3  border-end  border-2">
+                        <h6 class="mx-3"> Posted By <a
+                                href="/author/<%= post.author._id %>"><%= post.author.username %></a></h6>
                     </div>
-                    <div class="d-flex">
-                        <div class="py-2  border-end border-2">
-                            <h6 class="mx-3">Category : <a
-                                    href="/category/<%= post.category %>"><%= post.category %></a></h6>
-                        </div>
-                        <div class="py-2  border-end border-2">
-                            <h6 class="mx-3">Tags :
-                                <% if(post.tags.length > 0){ %>
-                                <% for(let i=0; i<post.tags.length; i++){ %>
-                                <a href="<%= `/post/${i}` %>"><%=  post.tags[i]%></a>
-                                <% } %>
+                    <div class="py-3 border-end  border-2">
+                        <h6 class="mx-3"><%= post.readTime %></a></h4>
+                    </div>
+                    <div class="py-3">
+                        <h6 class="mx-3"> <%= moment(post.createdAt) %> </a></h4>
+                    </div>
+                </div>
+                <div class="d-flex border-bottom">
+                    <div class="py-2  border-end border-2">
+                        <h6 class="mx-3">Category : <a href="/category/<%= post.category %>"><%= post.category %></a>
+                        </h6>
+                    </div>
+                    <div class="py-2  border-end border-2">
+                        <h6 class="mx-3">Tags :
+                            <% if(post.tags.length > 0){ %>
+                            <% for(let i=0; i<post.tags.length; i++){ %>
+                            <a href="<%= `/post/${i}` %>"><%=  post.tags[i]%></a>
+                            <% } %>
 
-                                <% }%>
+                            <% }%>
 
-                            </h6>
-                        </div>
+                        </h6>
                     </div>
                 </div>
                 <!--main post content ekhane thakbe-->
-                <div class=" container post-content py-5" style="font-size: 18px ; color: #565656;">
+                <div class="container post-content py-5" style="font-size: 18px ; color: #565656;">
                     <%- post.body %>
                 </div>
 
-                <div class="d-flex post-footer" style="background-color: #eceff1;">
+                <div class="d-flex post-footer border-top">
 
                     <% if(!user){ %>
                     <div class="py-2  border-end  border-2">
-                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i class="fas fa-heart mx-3"
-                                id="likeBtn" data-post="<%= post._id %>" style="font-size: 40px;"></i>
+                        <p class="mx-3 d-flex align-items-center justify-content-center"><i class="fas fa-heart mx-3"
+                                id="likeBtn" data-post="<%= post._id %>"></i>
                             <span id="likeCount"><%= post.likes.length %></span>
-                        </h5>
+                        </p>
                     </div>
                     <div class=" py-2 border-end border-2">
-                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i
-                                class="fa fa-thumbs-down  mx-3" id="disLikeBtn" style="font-size: 40px;"></i>
+                        <p class="mx-3 d-flex align-items-center justify-content-center"><i
+                                class="fa fa-thumbs-down  mx-3" id="disLikeBtn"></i>
                             <span id="dislikeCount"><%= post.dislikes.length %></span>
-                        </h5>
+                        </p>
                     </div>
                     <% }else{ %>
                     <div class="py-2  border-end  border-2">
-                        <h5 class="mx-3 d-flex align-items-center justify-content-center"><i
+                        <p class="mx-3 d-flex align-items-center justify-content-center"><i
                                 class=" <%= post.likes.includes(user._id) ? 'text-success' : '' %> fas fa-heart mx-3"
-                                id="likeBtn" data-post="<%= post._id %>" style="font-size: 40px;"></i>
+                                id="likeBtn" data-post="<%= post._id %>"></i>
                             <span id="likeCount"><%= post.likes.length %></span>
-                        </h5>
+                        </p>
                     </div>
                     <div class=" py-2 border-end border-2">
-                        <h5 class="mx-3 d-flex align-items-center justify-content-center"> <i
+                        <p class="mx-3 d-flex align-items-center justify-content-center"> <i
                                 class="<%= post.dislikes.includes(user._id) ? 'text-danger' : '' %> fa fa-thumbs-down  mx-3"
-                                id="disLikeBtn" style="font-size: 40px;"></i>
+                                id="disLikeBtn"></i>
                             <span id="dislikeCount"><%= post.dislikes.length %></span>
-                        </h5>
+                        </p>
                     </div>
                     <% } %>
 
                     <div class="py-2  border-end  border-2">
-                        <h5 class="mx-3 d-flex align-items-center justify-content-center"> <i
-                                class="fa fa-comment-alt display-6 mx-3 "></i> <%= post.comments.length %>
-                            Comments</h5>
+                        <p class="mx-3 d-flex align-items-center justify-content-center"> <i
+                                class="fa fa-comment-alt  mx-3 "></i> <%= post.comments.length %>
+                            Comments</p>
                     </div>
 
                 </div>
@@ -191,13 +189,15 @@
             <div class="my-3 shadow-sm border rounded" style="background: #FFF;">
 
                 <h1 class="m-2 text-center">Leave a comment ! </h1>
-                <input type="text" name="comment" class="form-control" id="comment" placeholder="Please enter to submit"
-                    data-post="<%= post._id %> ">
+
                 <hr>
                 <% if(!user){ %>
                 <p class="text-center text-muted mt-4">To like and comment please <a href="/auth/login">Login</a>
                 </p>
                 <% }else{ %>
+                <input type="text" name="comment" class="form-control" id="comment" placeholder="Please enter to submit"
+                    data-post="<%= post._id %> ">
+                <% } %>
 
                 <div id="comment-holder">
                     <% if(post.comments.length === 0){ %>
@@ -217,7 +217,12 @@
                                                     href="/author/<%= comment.user._id %>"><%= comment.user.username  %></a>
                                             </h6>
                                             <span class="text-dark"><%= moment(comment.createdAt) %></span>
+                                            <% if(user){ %>
                                             <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Reply</p>
+                                            <% }else{ %>
+                                            <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Login to
+                                                Reply</p>
+                                            <% } %>
                                         </div>
                                         <div class="comment-content">
                                             <%= comment.body  %>
@@ -249,6 +254,9 @@
                                     </li>
                                     <% } %>
                                     <% } %>
+
+                                    <!--reply by ajax-->
+                                    <% if(user){ %>
                                     <div class="mt-4 replyBox">
                                         <div class="comment-avatar"><img src="<%= user.profilePics  %> " alt="">
                                         </div>
@@ -266,17 +274,16 @@
                                                     value=" @<%= comment.user.username  %>  ">
                                             </div>
                                         </div>
-                                        <!-- single reply ends here-->
+                                    </div>
+                                    <% } %>
+                                    <!-- single reply ends here-->
                                 </ul>
-                            </li>
-                            <!-- single comment with reply ends here -->
-                            </li>
                         </ul>
                         <% } %>
                     </div>
                     <% } %>
                 </div>
-                <% } %>
+
             </div>
             <!-- post comment end -->
 

@@ -1,65 +1,9 @@
 <%- include('../../partials/head.ejs')  %>
-<div class="container-fluid d-flex justify-content-center my-5 " style="width: 60%;">
-    <div class="login_container shadow">
+<div class="container-fluid d-flex justify-content-center my-5">
+    <div class="shadow">
         <div class="container p-5" style="background-color:#fff">
             <div class="title login_form_title">
                 SIGN IN AND START PLAYING, FOR FREE
-            </div>
-
-            <div class="social_login">
-                <div class="row">
-
-                    <div class="col-sm-12 col-md-6 my-1">
-                        <button
-                            class="social_button btn btn-lg btn-block d-flex justify-content-center border outline-line"
-                            style="width: 100%;">
-                            <div>
-                                <i class="fab fa-google mx-1"></i>
-                            </div>
-                            <div>
-                                Sign in with Google
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 my-1">
-                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
-                            style="width: 100%;">
-                            <div>
-                                <i class="fab fa-facebook mx-1"></i>
-                            </div>
-                            <div>
-                                Sign in with Facebook
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 my-1">
-                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
-                            style="width: 100%;">
-                            <div>
-                                <i class="fab fa-github mx-1"></i>
-                            </div>
-                            <div>
-                                Sign in with Github
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="col-sm-12 col-md-6 my-1">
-                        <button class="social_button btn btn-lg btn-block d-flex justify-content-center border"
-                            style="width: 100%;">
-                            <div>
-                                <i class="fab fa-linkedin mx-1"></i>
-                            </div>
-                            <div>
-                                Sign in with Linkedin
-                            </div>
-                        </button>
-                    </div>
-
-
-                </div>
             </div>
             <h5 class="text-center my-4">Or</h5>
 
@@ -69,9 +13,9 @@
                 <!-- Email input -->
                 <div class="form-outline mb-3">
                     <input type="text" id="form3Example1"
-                        class="form-control border rounded-0 my-2 <%= error.email ? 'is-invalid': '' %>" name="email"
-                        id="email" value="<%= value.email ? value.email : '' %>" />
-                    <label class="form-label" for="form3Example3">Email address</label>
+                        class="form-control  my-2 <%= error.email ? 'is-invalid': '' %>" name="email" id="email"
+                        value="<%= value.email ? value.email : '' %>" />
+                    <label class="form-label" for="form3Example1">Email address</label>
                     <div class="invalid-feedback">
                         <%= error.email && error.email %>
                     </div>
@@ -80,9 +24,9 @@
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <input type="password" id="form3Example1"
-                        class="form-control border rounded-0 my-2 <%= error.password ? 'is-invalid': '' %>"
-                        name="password" id="password" />
-                    <label class="form-label" for="form3Example4">Password</label>
+                        class="form-control  my-2 <%= error.password ? 'is-invalid': '' %>" name="password"
+                        id="password" />
+                    <label class="form-label" for="form3Example1">Password</label>
                     <div class="invalid-feedback">
                         <%= error.password && error.password %>
                     </div>
