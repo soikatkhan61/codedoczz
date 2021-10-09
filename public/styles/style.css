@@ -201,7 +201,6 @@ body{
 .newsfeed-card .c-body .c-footer {
 display: flex;
 justify-content: space-between;
-padding-top: 20px;
 }
   
 .newsfeed-card .c-body .c-footer .like {

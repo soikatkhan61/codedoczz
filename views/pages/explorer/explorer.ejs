@@ -1,6 +1,6 @@
 <%- include('../../partials/head.ejs')  %>
 
-<div class="container-fluid my-5">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-3">
             <div class="card box-shadow">
@@ -47,7 +47,7 @@
 
                     </div>
 
-                    <div class="c-body" style="padding: 0px 10px 15px;">
+                    <div class="c-body" style="padding: 0px 10px;">
                         <a href="explorer/<%= post._id %> " class="text-dark">
                             <h5><%= post.title %> </h5>
                             <p class="mb-4"> <%= truncate(post.body) %> </p>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="share">
                                 <i class="fas fa-share"></i>
-                                <span>12k</span>
+                                <span><%= Math.floor(Math.random() * 1000) + 1; %></span>
                             </div>
                         </div>
                     </div>
@@ -100,11 +100,19 @@
         <div class="col-sm-12 col-md-3">
             <div class="card-body">
                 <h5>Sponsored</h5>
-                <ul>
-                    <li>HTML</li>
-                    <li>HTML</li>
-                    <li>HTML</li>
-                </ul>
+                <div class="card mb-3" style="max-height: 200px;">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/186.jpg" alt="..."
+                                class="img-fluid" />
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h6 class="card-title">75% off your first purchase.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="my-3">
@@ -137,6 +145,25 @@
                     </a>
                     <%}%>
                 </ul>
+            </div>
+            <div class="my-3">
+                <div class="profile mt-4">
+                    <div class="profile__header">
+                        <img class="profile__background img-fluid"
+                            src="https://mdbootstrap.com/img/new/standard/nature/185.jpg" />
+                        <img class="profile__picture img-fluid" src="/images/codeDocz logo.jpg" />
+                    </div>
+                    <div class="profile__content">
+                        <div class="profile__bio">
+                            <h3 class="profile__name">codeDocz</h3>
+                        </div>
+                        <div class="profile__twitter">
+                            <div class="profile__twitter__follow">
+                            <button class="profile__twitter__follow__button" style="background:#F70000">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

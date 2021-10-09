@@ -7,6 +7,7 @@ exports.searchResultGetController = async (req,res,next) =>{
     let itemPerPage = 10
 
     try{
+        console.log("okay search kortechi")
         let posts = await Post.find({
             $text :{
                 $search : term

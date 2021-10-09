@@ -10,10 +10,10 @@
             </a>
 
             <!-- Search form -->
-            <form class="input-group w-auto my-auto d-none d-sm-flex">
-                <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search"
-                    style="min-width: 125px;" />
-                <span class="input-group-text border-0 d-none d-lg-flex"><i class="fas fa-search"></i></span>
+            <form action="/search" method="GET" class="input-group w-auto my-auto d-none d-sm-flex">
+                <input name="term" class="form-control rounded" placeholder="Search" style="min-width: 125px;" />
+                <button type="submit" class="input-group-text border-0 d-none d-lg-flex"><i
+                        class="fas fa-search"></i></button>
             </form>
         </div>
         <!-- Left elements -->
@@ -36,12 +36,6 @@
             <li class="nav-item me-1 me-lg-1">
                 <a class="nav-link px-2 rounded" href="/dashboard">
                     <span><i class="fas fa-video fa-lg"></i></span>
-                </a>
-            </li>
-
-            <li class="nav-item me-1 me-lg-1">
-                <a class="nav-link px-2 rounded" href="#">
-                    <span><i class="fas fa-shopping-bag fa-lg"></i></span>
                 </a>
             </li>
 
