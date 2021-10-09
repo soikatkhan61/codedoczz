@@ -129,15 +129,11 @@
                         Top Author
                     </li>
                     <% for(let tu of topUser) {%>
-                    <% var sum = 0;  %>
-                    <%   for(post of tu.posts){ %>
-                    <%  sum = sum + post.likes.length %>
-                    <%}%>
-                    <a class="text-dark" href="/author/<%=  %> ">
-                    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
-                        <%= tu.name %> <span class="badge text-dark rounded-pill"> <%= sum %>
-                        </span>
-                    </li>
+                    <a class="text-dark" href="/author/<%= tu.user._id %> ">
+                        <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                            <%= tu.name %> <span class="badge text-dark rounded-pill"> <%= tu.totalPost %>
+                            </span>
+                        </li>
                     </a>
                     <%}%>
                 </ul>

@@ -15,7 +15,7 @@ exports.authorProfileGetController = async (req,res,next) =>{
                     path:'posts bookmarks'
                 }
             })
-        let profile = await Profile.findOne({user:req.user._id})
+        let profile = await Profile.findOne({user:userId})
         if(!profile){
             return  res.redirect('/dashboard/create-profile')
         }

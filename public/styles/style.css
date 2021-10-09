@@ -61,7 +61,18 @@ body{
 	box-shadow: 0 1px 2px rgba(0,0,0,0.2)
 }
 
+.latest-items .heading{
+	text-align: center;
+	margin-bottom: 2rem;
+	position: relative;
+}
 
+.latest-items .heading span{
+	font-size: 2rem;
+	padding: 0.5rem 2rem;
+	color:#444;
+	border: .1rem solid rgba(0,0,0,.1);
+}
 /* bootstrap override starts here */
 
 .contuct-form textarea:focus, 

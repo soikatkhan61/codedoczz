@@ -220,8 +220,11 @@
                                             <% if(user){ %>
                                             <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Reply</p>
                                             <% }else{ %>
-                                            <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Login to
-                                                Reply</p>
+                                            <a href="/auth/login">
+                                                <p class="text-end reply-btn" style="margin: 0; cursor: pointer;">Login
+                                                    to
+                                                    Reply</p>
+                                            </a>
                                             <% } %>
                                         </div>
                                         <div class="comment-content">

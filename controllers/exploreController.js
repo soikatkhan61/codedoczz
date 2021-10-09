@@ -83,12 +83,7 @@ exports.explorerGetController = async (req, res, next) => {
 
         }
         let categories = await Category.find()
-        let topUser =  await Profile.find()
-            .populate({
-               path:'posts user',
-                select:'likes'
-            })
-
+        let topUser =  await Profile.find().sort("-totalPost name").limit(10)
 
         res.render('pages/explorer/explorer', {
             title: 'Explore All Post',

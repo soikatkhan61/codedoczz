@@ -256,14 +256,14 @@ ul {
   
 @media only screen and (max-width: 750px) {
    .comments-container {
-	   width: 460px;
+	   width: 90%;
    }
 
    .comments-list .comment-box {
-	   width: 380px;
+	   width: 85%;
    }
 
    .reply-list .comment-box {
-	   width: 310px;
+      width: 80%;
    }
 }

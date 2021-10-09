@@ -38,49 +38,49 @@
 
 <section class="bg-color pb-5 main_section container d-flex">
 
-        <!-- recent items starts here -->
-        <div class="latest-items">
+    <!-- recent items starts here -->
+    <div class="latest-items">
 
-            <div class="container">
-                <h3 class="py-2">Latest Items</h3>
-                <div class="row">
-                    <% if(posts.length ===0){ %>
-                    <div class="text-center text-muted">
-                        <h1>There is no posts available right now</h1>
-                    </div>
-                    <% }else{ %>
-                    <% for(let post of posts){ %>
-                    <div class="col-sm-6 col-md-4 col-lg-4 my-2">
-                        <div class="card h-100">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/11<%= Math.floor(Math.random() * 10) + 1; %>.jpg" class="img-fluid" />
-                                <a href="/explorer/<%= post._id %> ">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <a href="/explorer/<%= post._id %>" class="text-dark"><%= post.title %></a>
-                                </p>
-                                <p style="margin: 0;">By <a href="/author/<%= post.author._id %> "
-                                        style="font-size: 16px;">
-                                        <%= post.author.username %> </a>
-                                    <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
-                                    </span> </p>
-                                <span> <i class="fa fa-eye"></i> <%= post.views %> views <span class="mx-2"> <i
-                                            class="fa fa-heart"></i>
-                                        1.3K</span> </span>
-                            </div>
+        <div class="container">
+            <h1 class="py-2 heading"><span>Latest Items</span></h1>
+            <div class="row">
+                <% if(posts.length ===0){ %>
+                <div class="text-center text-muted">
+                    <h1>There is no posts available right now</h1>
+                </div>
+                <% }else{ %>
+                <% for(let post of posts){ %>
+                <div class="col-sm-6 col-md-4 col-lg-4 my-2">
+                    <div class="card h-100">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/11<%= Math.floor(Math.random() * 10) + 1; %>.jpg"
+                                class="img-fluid" />
+                            <a href="/explorer/<%= post._id %> ">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a href="/explorer/<%= post._id %>" class="text-dark"><%= post.title %></a>
+                            </p>
+                            <p style="margin: 0;">By <a href="/author/<%= post.author._id %> " style="font-size: 16px;">
+                                    <%= post.author.username %> </a>
+                                <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
+                                </span> </p>
+                            <span> <i class="fa fa-eye"></i> <%= post.views %> views <span class="mx-2"> <i
+                                        class="fa fa-heart"></i>
+                                    1.3K</span> </span>
                         </div>
                     </div>
-                    <% } %>
-                    <% } %>
-
                 </div>
+                <% } %>
+                <% } %>
+
             </div>
         </div>
+    </div>
 
-        <!-- recent items ends here -->
+    <!-- recent items ends here -->
 
 
     <!-- sidebars starts here -->
