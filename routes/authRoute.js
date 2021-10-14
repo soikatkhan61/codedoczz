@@ -10,7 +10,8 @@ const {
     loginPostController,
     logoutController,
     changePasswordGetController,
-    changePasswordPostController
+    changePasswordPostController,
+    verifyController
 } = require('../controllers/authController')
 
 const {
@@ -27,6 +28,8 @@ router.post('/login',isUnAuthenticated,loginValidator,loginPostController)
 
 router.get('/change-password',isAuthenticated,changePasswordGetController)
 router.post('/change-password',isAuthenticated,changePasswordPostController)
+
+router.get('/verify-account/:v_id',verifyController)
 
 router.get('/logout',logoutController)
 

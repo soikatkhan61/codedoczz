@@ -20,6 +20,14 @@ const userSchema = new Schema({
         required:true,
         type:String
     },
+    isVerified:{
+        type:Boolean,
+        default:false
+    },
+    verification_id:{
+        type:Number,
+        default:-1
+    },
     profile:{
         type:Schema.Types.ObjectId,
         ref: 'Profile'

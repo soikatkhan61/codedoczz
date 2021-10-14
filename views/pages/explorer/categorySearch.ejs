@@ -18,41 +18,36 @@
 <!--  post start -->
 <div class="container-fluid">
     <div class="row d-flex">
-
         <div class="offset-md-2 col-sm-12 col-md-7">
-
-            <div class="mt-5">
-                <h5>Post for "<span style="text-transform: uppercase;"><%= category %></span>"</h5>
-                <hr>
-                <% for(post of categories.posts.reverse()){ %>
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="/explorer/<%= post._id %>"> <img src="<%= post.thumbnail %>" alt="..."
-                                    class="img-fluid" /></a>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <a href="/explorer/<%= post._id %>" class="text-dark">
-                                    <h5><%= post.title %> </h5>
-                                </a>
-                                <div>
-                                    <p style="margin: 0;">By <a href="/author/<%= post.author._id %> "
-                                            style="font-size: 16px;"><%= post.author.username %>
-                                        </a>
-                                        <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
-                                        </span> </p>
-                                    <span> <i class="fa fa-eye"></i> <%= post.views %> views <span class="mx-2"> <i
-                                                class="mx-1 fa fa-heart"></i>1.3K</span> </span>
-                                </div>
+            <h5>Post for "<span style="text-transform: uppercase;"><%= category %></span>"</h5>
+            <hr>
+            <% for(post of categories.posts.reverse()){ %>
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="/explorer/<%= post._id %>"> <img src="<%= post.thumbnail %>" alt="..."
+                                class="img-fluid" /></a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <a href="/explorer/<%= post._id %>" class="text-dark">
+                                <h5><%= post.title %> </h5>
+                            </a>
+                            <div>
+                                <p style="margin: 0;">By <a href="/author/<%= post.author._id %> "
+                                        style="font-size: 16px;"><%= post.author.username %>
+                                    </a>
+                                    <span style="font-size: 14px;"> . <%= moment(post.createdAt) %>
+                                    </span> </p>
+                                <span> <i class="fa fa-eye"></i> <%= post.views %> views <span class="mx-2"> <i
+                                            class="mx-1 fa fa-heart"></i>1.3K</span> </span>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
-                <% } %>
-
             </div>
+            <% } %>
         </div>
 
         <div class="col-sm-12 col-md-3">

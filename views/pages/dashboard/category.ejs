@@ -8,38 +8,33 @@
         </div>
 
         <div class="col-sm-12 col-md-10">
-            <div class="mt-5">
-                <div class="row">
-                    <div class="col-md-6 offset-1">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>Add new</h4>
-                                <form action="/category" method="post">
-                                    <input type="text" class="form-control" name="category">
-                                    <button type="submit" class="btn green mt-4 text-light"> Add </button>
-                                </form>
-                            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-1 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Add new</h4>
+                            <form action="/category" method="post">
+                                <input type="text" class="form-control" name="category">
+                                <button type="submit" class="btn green mt-4 text-light"> Add </button>
+                            </form>
                         </div>
                     </div>
-
-                    <div class="col-md-5 ">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="text-center">list of all category</h5>
-                                <hr>
-                                <ul>
-                                    <% for(let cat of catgories) {%>
-                                    <li><%= cat.category %> </li>
-                                    <% }%>
-                                </ul>
-                            </div>
-                            <h6>Test</h6>
-                            <hr>
-
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="col-md-5 ">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-center">list of all category</h5>
+                            <hr>
+                            <ul>
+                                <% for(let cat of catgories) {%>
+                                <li><%= cat.category %> </li>
+                                <% }%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

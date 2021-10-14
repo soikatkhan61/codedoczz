@@ -3,6 +3,7 @@ const  User = require('../models/User')
 const  {validationResult} = require('express-validator')
 const  errorFormatter = require('../utils/validationErrorFormatter')
 const  Flash = require('../utils/Flash')
+const nodemailer = require('nodemailer')
 
 exports.signupGetController = (req,res,next) =>{
     res.render('pages/auth/signup',{
@@ -38,9 +39,51 @@ exports.signupPostController = async (req,res,next) =>{
             email,
             password: hashPassword,
         })
-        await user.save()
+        let createdUser = await user.save()
         req.flash('success','User created successfully')
-        res.redirect('/auth/login')
+
+        async function sendEmailVerificatonLink(){
+
+            let v_id = await User.findByIdAndUpdate({_id:createdUser._id},{verification_id:Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111)},{new:true})
+
+            v_id = v_id.verification_id
+
+            var transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 465,
+                secure: true, 
+                debug:true,
+                auth: {
+                    user: 'soikatkhan61', //Remove '@gmail.com' from your username.
+                    pass: 'FUCKMYMIND69' 
+                 }
+               });
+        
+            var mailOptions = {
+                from:'codeDocz team - verifiaction',
+                to:`${createdUser.email}`,
+                subject:'Please verify your account!',
+                html: `
+                    <div>
+                        <p>Thank your for signup. to verify click this link <a href="http://codedoczz.herokuapp.com/auth/verify-account/${v_id}" > http://codedocz/verify/${v_id} </a></p>
+                    </div>
+                `
+            }
+        
+            transporter.sendMail(mailOptions,function(error,info){
+                if(error){
+                    console.log(error)
+                }else{
+                    res.render('pages/auth/verify-check',{
+                        user,
+                        flashMessage : Flash.getMessage(req)
+                    })
+                    console.log('email sent: '+info.response)
+                }
+            })
+        }
+        sendEmailVerificatonLink().catch(console.error)
+        
    }
    catch(e){
        next(e)
@@ -112,6 +155,15 @@ exports.loginPostController = async (req,res,next) =>{
              })
         }
 
+        if(!user.isVerified){
+            return  res.render('pages/auth/verify-check',
+            {
+                flashMessage : Flash.getMessage(req),
+                user
+            }
+            )
+        }
+
         req.session.isLoggedIn = true
         req.session.user = user
         req.session.save(err=>{
@@ -138,6 +190,23 @@ exports.logoutController = (req,res,next) =>{
         }
         return res.redirect('/auth/login')
     })
+
+   
+}
+
+exports.verifyController = async(req,res,next) =>{
+   
+    let verify_id =  req.params.v_id
+    console.log(verify_id)
+    try{
+        await User.findOneAndUpdate({verification_id:verify_id},{isVerified:true,verification_id:-1})
+        req.flash('success','verification successfully')
+        res.redirect('/dashboard')
+    }catch(e){
+        next(e)
+    }
+  
+    
 
    
 }

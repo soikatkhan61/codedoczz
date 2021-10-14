@@ -1,5 +1,5 @@
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-1 mb-lg-5">
     <div class="container-fluid justify-content-between">
         <!-- Left elements -->
         <div class="d-flex">
@@ -11,7 +11,7 @@
 
             <!-- Search form -->
             <form action="/search" method="GET" class="input-group w-auto my-auto d-none d-sm-flex">
-                <input name="term" class="form-control rounded" placeholder="Search" style="min-width: 125px;" />
+                <input name="term" class="form-control rounded" placeholder="Search" style="min-width: 100px;" />
                 <button type="submit" class="input-group-text border-0 d-none d-lg-flex"><i
                         class="fas fa-search"></i></button>
             </form>
@@ -29,13 +29,13 @@
 
             <li class="nav-item me-1 me-lg-1">
                 <a class="nav-link px-2 rounded" href="/explorer">
-                    <span><i class="fas fa-flag fa-lg"></i></span>
+                    <span><i class="fas fa-th fa-lg"></i></span>
                 </a>
             </li>
 
             <li class="nav-item me-1 me-lg-1">
                 <a class="nav-link px-2 rounded" href="/dashboard">
-                    <span><i class="fas fa-video fa-lg"></i></span>
+                    <span><i class="fas fa-chart-line fa-lg"></i></span>
                 </a>
             </li>
 
@@ -59,29 +59,11 @@
                 </a>
             </li>
             <li class="nav-item me-3 me-lg-1">
-                <a class="nav-link" href="#">
-                    <span><i class="fas fa-plus-circle fa-lg"></i></span>
+                <a class="nav-link green text-light rounded px-2" href="/posts/create">
+                    <span><i class="fas fa-edit"></i>New</span>
                 </a>
             </li>
-            <li class="nav-item dropdown me-3 me-lg-1">
-                <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-comments fa-lg"></i>
 
-                    <span class="badge rounded-pill badge-notification bg-danger">6</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-            </li>
             <li class="nav-item dropdown me-3 me-lg-1">
                 <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
                     data-mdb-toggle="dropdown" aria-expanded="false">
@@ -129,7 +111,7 @@
                     Login
                 </button></a>
 
-            <a href="/auth/signup" class="text-light"><button type="button" class="btn btn-primary px-3 me-2">
+            <a href="/auth/signup" class="text-light"><button type="button" class="btn green text-light px-3 me-2">
                     Sign up for free</button></a>
         </div>
         <% }%>
