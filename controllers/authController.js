@@ -65,7 +65,7 @@ exports.signupPostController = async (req,res,next) =>{
                 subject:'Please verify your account!',
                 html: `
                     <div>
-                        <p>Thank your for signup. to verify click this link <a href="http://codedoczz.herokuapp.com/auth/verify-account/${v_id}" > http://codedocz/verify/${v_id} </a></p>
+                        <p>Thank your for signup. to verify click this link <a href="http://codedocz.herokuapp.com/auth/verify-account/${v_id}" > http://codedocz/verify/${v_id} </a></p>
                     </div>
                 `
             }
