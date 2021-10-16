@@ -4,8 +4,19 @@ const  {validationResult} = require('express-validator')
 const  errorFormatter = require('../utils/validationErrorFormatter')
 const  Flash = require('../utils/Flash')
 const nodemailer = require('nodemailer')
+const {google} = require('googleapis')
+
+const CLIENT_ID = '221485066111-6dcucndtpmm2tcvothl6bfanh1ets1o2.apps.googleusercontent.com'
+const CLIENT_SECRET = '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'
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
+const REFRESH_TOKEN = '1//04zJSF8B9sRhWCgYIARAAGAQSNwF-L9IryBwEj3VM8h9kx-j2PbRyv2NapNMosJ3oAsYwxeFlfVfyCNS-A3rDIwmH-uv_ZZDbg7w'
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI)
+oAuth2Client.setCredentials({refresh_token:REFRESH_TOKEN})
+
 
 exports.signupGetController = (req,res,next) =>{
+
     res.render('pages/auth/signup',{
         title:'Create a new account',
         error:{}, 
@@ -42,48 +53,59 @@ exports.signupPostController = async (req,res,next) =>{
         let createdUser = await user.save()
         req.flash('success','User created successfully')
 
-        async function sendEmailVerificatonLink(){
+        let v_id = await User.findByIdAndUpdate({_id:createdUser._id},{verification_id:Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111)},{new:true})
 
-            let v_id = await User.findByIdAndUpdate({_id:createdUser._id},{verification_id:Math.floor(Math.random() * (99999999 - 11111111 + 1) + 11111111)},{new:true})
+        v_id = v_id.verification_id
 
-            v_id = v_id.verification_id
+        async function sendMail(){
 
-            var transporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
-                port: 465,
-                secure: true, 
-                debug:true,
-                auth: {
-                    user: 'soikatkhan61', //Remove '@gmail.com' from your username.
-                    pass: 'FUCKMYMIND69' 
-                 }
-               });
-        
-            var mailOptions = {
-                from:'codeDocz team - verifiaction',
-                to:`${createdUser.email}`,
-                subject:'Please verify your account!',
-                html: `
-                    <div>
-                        <p>Thank your for signup. to verify click this link <a href="http://codedocz.herokuapp.com/auth/verify-account/${v_id}" > http://codedocz/verify/${v_id} </a></p>
-                    </div>
-                `
-            }
-        
-            transporter.sendMail(mailOptions,function(error,info){
-                if(error){
-                    console.log(error)
-                }else{
-                    res.render('pages/auth/verify-check',{
-                        user,
-                        flashMessage : Flash.getMessage(req)
-                    })
-                    console.log('email sent: '+info.response)
+            try{
+                const accessToken = await oAuth2Client.getAccessToken()
+
+
+                const transport = nodemailer.createTransport({
+                    service:'gmail',
+                    auth:{
+                        type:'OAuth2',
+                        user:'soikatkhan61@gmail.com',
+                        clientId: CLIENT_ID,
+                        clientSecret:CLIENT_SECRET,
+                        refreshToken:REFRESH_TOKEN,
+                        accessToken:accessToken
+                    }
+                })
+
+                const mailOptions={
+                    from:'codeDocz <codedoczbox@gamil.com>',
+                    to:`${createdUser.email}`,
+                    subject:'Please verify your account!',
+                    html: `
+                        <div>
+                            <p>Thank your for signup. to verify click this link <a href="http://${req.hostname}/auth/verify-account/${v_id}" > http://${req.hostname}/verify/${v_id} </a></p>
+                        </div>
+                    `
                 }
-            })
-        }
-        sendEmailVerificatonLink().catch(console.error)
-        
+
+                await transport.sendMail(mailOptions,function(error,info){
+                        if(error){
+                            console.log(error)
+                        }else{
+                            res.render('pages/auth/verify-check',{
+                                user,
+                                flashMessage : Flash.getMessage(req)
+                            })
+                            console.log('email sent: '+info.response)
+                        }
+                    })
+               
+            }catch(e){
+                next(e) 
+            }
+        } 
+
+        sendMail().then(result=> console.log("Email sent:..."+result))
+            .catch(error=>console.log(error))
+
    }
    catch(e){
        next(e)
