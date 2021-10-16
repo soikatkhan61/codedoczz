@@ -81,7 +81,12 @@ exports.signupPostController = async (req,res,next) =>{
                     subject:'Please verify your account!',
                     html: `
                         <div>
-                            <p>Thank your for signup. to verify click this link <a href="http://${req.hostname}/auth/verify-account/${v_id}" > http://${req.hostname}/verify/${v_id} </a></p>
+                            <p>Thank your for signup. to verify click this link 
+                            
+                            <a href="http://${req.hostname}/auth/verify-account/${v_id}" > http://${req.hostname}/auth/verify-account/${v_id} 
+                            
+                            </a>
+                            </p>
                         </div>
                     `
                 }
