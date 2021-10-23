@@ -1,8 +1,9 @@
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-1 mb-lg-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid justify-content-between">
         <!-- Left elements -->
         <div class="d-flex">
+            <button class="navbar-toggler" id="sidebar-toggler"><i class="fas fa-bars"></i></button>
             <!-- Brand -->
             <a class="navbar-brand me-1 mb-1 d-flex align-items-center" href="#">
                 <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="20" alt=""
@@ -10,7 +11,7 @@
             </a>
 
             <!-- Search form -->
-            <form action="/search" method="GET" class="input-group w-auto my-auto d-none d-sm-flex">
+            <form action="/search" method="GET" class="input-group w-auto my-auto d-none d-md-flex">
                 <input name="term" class="form-control rounded" placeholder="Search" style="min-width: 100px;" />
                 <button type="submit" class="input-group-text border-0 d-none d-lg-flex"><i
                         class="fas fa-search"></i></button>

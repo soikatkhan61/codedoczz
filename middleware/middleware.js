@@ -9,7 +9,15 @@ const config = require('config');
 const {bindUserWithRequest} = require('./authMidleware');
 const setLocals = require('./setLocals')
 
-const MONGODB_URI =`mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+let MONGODB_URI
+if(true){
+ MONGODB_URI =`mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+}else{
+ MONGODB_URI = "mongodb://localhost:27017"
+}
+
+
+
 
 const store = new MongoDBStore({
     uri: MONGODB_URI,

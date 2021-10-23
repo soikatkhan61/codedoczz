@@ -11,37 +11,11 @@ const upload = require('../middleware/uploadMiddleware')
 const Flash =  require('../utils/Flash')
 
 router.get('/play',async(req,res,next)=>{
-
-    async function sendEmailVerificatonLink(){
-        var transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true, 
-            auth: {
-                user: 'mdsoikat9', //Remove '@gmail.com' from your username.
-                pass: 'FUCKMYMIND69' 
-             }
-           });
+    res.render("playground/play" ,{
+        flashMessage : Flash.getMessage(req)
+    })
     
-        var mailOptions = {
-            from:'soikatkhan61@gmail.com',
-            to:'obaydullahkhaan@gmail.com',
-            subject:'Please verify your account!',
-            text: 'Thnaky you'
-        }
-    
-        await transporter.sendMail(mailOptions,function(error,info){
-            if(error){
-                console.log(error)
-            }else{ 
-                res.send('email sent: '+info.response) 
-                console.log('email sent: '+info.response)
-            }
-        })
-    }
-    sendEmailVerificatonLink().catch(console.error)
-    
-   
+  
 })
 
 router.post('/play',upload.single('my-file'),(req,res,next)=>{

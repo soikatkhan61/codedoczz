@@ -12,7 +12,7 @@ module.exports = [
             let node = cheerio.load(value)
             let text = node.text()
 
-            if(text.length > 5000){
+            if(text.length > 50000){
                 throw new Error ('body cannot be greater than 5000 char')
             }
 

@@ -17,22 +17,96 @@
 <!-- Main post starts here -->
 <!--  post start -->
 <div class="container-fluid">
-    <div class="row d-flex">
-        <div class="col-sm-12 col-md-2">
-            <div class="py-5 bg-light d-flex flex-column rounded text-center box-shadow">
-                <a href="#">Introduction</a>
-                <a href="#">Setup</a>
-                <a href="#">Detail</a>
+    <div class="row">
+        <div class="col-sm-12 col-lg-2" id="single_sidenav">
+            <div class="single_sidebar">
+                <div class=" leftcolumn mt-4">
+                    <div class="segment">
+                        <span>HTML</span>BASIC
+                    </div>
+                    <div class="chapters">
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                    </div>
+
+                    <div class="segment">
+                        <span>HTML BASIC</span>
+                    </div>
+                    <div class="chapters">
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                    </div>
+
+                    <div class="segment">
+                        <span>HTML BASIC</span>
+                    </div>
+                    <div class="chapters">
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                    </div>
+
+                    <div class="segment">
+                        <span>HTML BASIC</span>
+                    </div>
+                    <div class="chapters">
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                    </div>
+
+                    <div class="segment">
+                        <span>HTML BASIC</span>
+                    </div>
+                    <div class="chapters">
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                        <a href="#">HTML Getting Started</a>
+                        <a href="#">HTML Elements</a>
+                        <a href="#">HTML Attributes</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-7">
+        <div class="content col-sm-12 col-lg-7">
 
             <!--  post content start -->
             <div class="mt-4 box-shadow" style="background-color: #fff;">
                 <div class="d-flex border-bottom">
                     <div class="py-3  border-end  border-2">
                         <h6 class="mx-3"> Posted By <a
-                                href="/author/<%= post.author._id %>"><%= post.author.username %></a></h6>
+                                href="/author/<%= post.author._id %>"><%= post.author.username %></a>
+                        </h6>
                     </div>
                     <div class="py-3 border-end  border-2">
                         <h6 class="mx-3"><%= post.readTime %></a></h4>
@@ -294,62 +368,92 @@
         <!--  post end -->
 
         <!-- post sidebars starts here -->
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-lg-3">
 
-            <div class="profile mt-4">
-                <div class="profile__header">
-                    <img class="profile__background img-fluid"
-                        src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" />
-                    <img class="profile__picture img-fluid" src="<%= post.author.profilePics %>" />
-                </div>
-                <div class="profile__content">
-                    <div class="profile__bio">
-                        <h3 class="profile__name"><%= post.author.username  %></h3>
+            <div>
+                <!-- <div class="profile mt-4">
+                    <div class="profile__header">
+                        <img class="profile__background img-fluid"
+                            src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" />
+                        <img class="profile__picture img-fluid" src="<%= post.author.profilePics %>" />
                     </div>
-                    <div class="profile__links"><a class="profile__link" href="#"><span class="profile__link__text">New
-                                York</span></a><a class="profile__link" href="#"><span class="profile__link__text">Send
-                                Email
-                            </span></a>
-                    </div>
-                    <div class="profile__twitter">
-                        <div class="profile__twitter__stats profile__twitter__stats--followers"><span
-                                class="profile__twitter__stats__count"
-                                id="followerCount"><%= post.author.profile.follower.length %></span><span
-                                class="profile__twitter__stats__label">Followers</span></div>
-                        <div class="profile__twitter__stats profile__twitter__stats--following"><span
-                                class="profile__twitter__stats__count"><%= post.author.profile.following.length %></span><span
-                                class="profile__twitter__stats__label">Following</span></div>
-                        <div class="profile__twitter__follow">
+                    <div class="profile__content">
+                        <div class="profile__bio">
+                            <h3 class="profile__name"><%= post.author.username  %></h3>
+                        </div>
+                        <div class="profile__links"><a class="profile__link" href="#"><span
+                                    class="profile__link__text">New
+                                    York</span></a><a class="profile__link" href="#"><span
+                                    class="profile__link__text">Send
+                                    Email
+                                </span></a>
+                        </div>
+                        <div class="profile__twitter">
+                            <div class="profile__twitter__stats profile__twitter__stats--followers"><span
+                                    class="profile__twitter__stats__count"
+                                    id="followerCount"><%= post.author.profile.follower.length %></span><span
+                                    class="profile__twitter__stats__label">Followers</span></div>
+                            <div class="profile__twitter__stats profile__twitter__stats--following"><span
+                                    class="profile__twitter__stats__count"><%= post.author.profile.following.length %></span><span
+                                    class="profile__twitter__stats__label">Following</span></div>
+                            <div class="profile__twitter__follow">
 
-                            <% if(!user){ %>
-                            <button class="profile__twitter__follow__button" id="followBtn"
-                                data-author="<%= post.author._id %> ">Follow</button>
-                            <% }else{ %>
-                            <button class="profile__twitter__follow__button" id="followBtn"
-                                data-author="<%= post.author._id %> "><%= post.author.profile.follower.includes(user._id) ? 'Followed' : 'Follow' %>
-                            </button>
-                            <% } %>
+                                <% if(!user){ %>
+                                <button class="profile__twitter__follow__button" id="followBtn"
+                                    data-author="<%= post.author._id %> ">Follow</button>
+                                <% }else{ %>
+                                <button class="profile__twitter__follow__button" id="followBtn"
+                                    data-author="<%= post.author._id %> "><%= post.author.profile.follower.includes(user._id) ? 'Followed' : 'Follow' %>
+                                </button>
+                                <% } %>
 
+                            </div>
                         </div>
                     </div>
+                </div> -->
+                <div class="profile-card-1 mt-4">
+                    <div class="img"><img src="<%= post.author.profilePics %>" /></div><a class="view-more" href=""><i
+                            class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a>
+                    <div class="mid-section">
+                        <div class="name"><%= post.author.username  %></div>
+                        <div class="description">Founder and Owner at <a href="https://facebook.com">Facebook</a></div>
+                        <div class="line"></div>
+                        <div class="stats">
+                            <div class="stat"><%= post.author.profile.follower.length %>.3M<div class="subtext">
+                                    Followers</div>
+                            </div>
+                            <div class="stat"><%= post.author.profile.following.length %>k<div class="subtext">Likes
+                                </div>
+                            </div>
+                            <div class="stat">750k<div class="subtext">Shares</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links">
+                        <a class="fb" href=""><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a class="twitter" href=""><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a class="follow" href=""><i class="fa fa-rocket" aria-hidden="true"></i> </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="shadow-sm my-3" style="background-color: #fff;">
-                <div class="">
-                    <ul class="list-group">
-                        <li
-                            class="list-group-item d-flex justify-content-center align-items-center green text-light rounded-0">
-                            Category
-                        </li>
-                        <% for(let cat of categories) {%>
-                        <a class="text-dark" href="/category/<%= cat.category %> ">
-                            <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
-                                <%= cat.category %> <span class="badge green rounded-pill"><%= cat.posts.length %>
-                                </span></li>
-                        </a>
-                        <%}%>           
-                    </ul>
+                <div class="shadow-sm my-3 " style="background-color: #fff; max-width: 300px; margin: 0 auto;">
+                    <div class="">
+                        <ul class="list-group">
+                            <li
+                                class="list-group-item d-flex justify-content-center align-items-center green text-light rounded-0">
+                                Category
+                            </li>
+                            <% for(let cat of categories) {%>
+                            <a class="text-dark" href="/category/<%= cat.category %> ">
+                                <li
+                                    class="list-group-item list-hover d-flex justify-content-between align-items-center">
+                                    <%= cat.category %> <span class="badge green rounded-pill"><%= cat.posts.length %>
+                                    </span></li>
+                            </a>
+                            <%}%>           
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -362,30 +466,30 @@
 
 
 <%- include('../../partials/footer.ejs')  %>
-                        <script>
-                            var replyBtn = document.querySelectorAll(".reply-btn")
-                            var replyDiv = document.querySelectorAll(".replyBox")
-                            var replyInput = document.querySelectorAll(".reply-input")
+                            <script>
+                                var replyBtn = document.querySelectorAll(".reply-btn")
+                                var replyDiv = document.querySelectorAll(".replyBox")
+                                var replyInput = document.querySelectorAll(".reply-input")
 
-                            var commentBoxArray = Array.prototype.slice.call(replyBtn)
-                            var replyDivArray = Array.prototype.slice.call(replyDiv)
-                            var replyInputArray = Array.prototype.slice.call(replyInput)
+                                var commentBoxArray = Array.prototype.slice.call(replyBtn)
+                                var replyDivArray = Array.prototype.slice.call(replyDiv)
+                                var replyInputArray = Array.prototype.slice.call(replyInput)
 
-                            var replyDivIndex = -1;
-                            var displayNoneIndex = -1;
+                                var replyDivIndex = -1;
+                                var displayNoneIndex = -1;
 
-                            for (let i = 0; i < commentBoxArray.length; i++) {
-                                commentBoxArray[i].addEventListener('click', (e) => {
-                                    replyDivArray[i].classList.toggle("replyBox")
-                                    replyInputArray[i].focus()
-                                    replyDivIndex = i
-                                })
+                                for (let i = 0; i < commentBoxArray.length; i++) {
+                                    commentBoxArray[i].addEventListener('click', (e) => {
+                                        replyDivArray[i].classList.toggle("replyBox")
+                                        replyInputArray[i].focus()
+                                        replyDivIndex = i
+                                    })
 
-                            }
+                                }
 
-                        </script>
-                        <script src="/scripts/likeCommentBookmark.js"></script>
+                            </script>
+                            <script src="/scripts/likeCommentBookmark.js"></script>
 
-                        </body>
+                            </body>
 
-                        </html>
+                            </html>

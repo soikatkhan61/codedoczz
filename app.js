@@ -6,10 +6,15 @@ const config = require('config')
 const setMiddleware = require('./middleware/middleware')
 const setRoutes = require('./routes/routes')
 
-//database connection
-const MONGODB_URI =`mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+let MONGODB_URI
+if(true){
+ MONGODB_URI =`mongodb+srv://${config.get('db-username')}:${config.get('db-password')}@cluster0.hpstb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+}else{
+ MONGODB_URI = "mongodb://localhost:27017"
+}
 
-const app = express()
+
+const app = express() 
 
 console.log(config.get("name"));
 
@@ -19,7 +24,7 @@ app.set('views','views')
 
 
 // using middlware from midleware directory
-setMiddleware(app)
+setMiddleware(app) 
 
 //using route from route directory
 setRoutes(app)

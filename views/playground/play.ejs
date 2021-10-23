@@ -1,35 +1,101 @@
 <%- include('../partials/head.ejs')  %>
-
-<div class="container py-5" style="min-height: 600px;max-width:400px ;">
-    <div class="bg-light shadow border-rounded p-5">
-        <h4 class="text-center my-3 ">Upload file !</h4>
-        <form action="/playground/play" method="POST" enctype="multipart/form-data">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row mb-4">
-                <div class="col">
-                    <div class="form-outline">
-                        <input type="text" id="form3Example1" class="form-control" name="username" id="username" />
-                        <label class="form-label" for="form3Example1">Username</label>
+<h5> Playground For Testing </h5>
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="all-products">
+                <div class="card h-100">
+                    <img src="/images/product4.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <div class="product-info">
+                            <div class="product-title">Tablet pc with 64gb sd card</div>
+                            <p class="short-desc">This is test short description for this product card. Its for practice
+                                purpose only...
+                            </p>
+                            <div class="price"><span class="new-price">Tk 8,000</span> <span class="old-price">Tk
+                                    9,000</span> <span class="off">30% OFF</span>
+                            </div>
+                            <div class="product-button d-flex justify-content-evenly mt-2">
+                                <button class="fill">Buy Now</button>
+                                <button class="nofill">Get Affiliate</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row mb-4">
-                <div class="col">
-                    <div class="form-outline">
-                        <input type="file" id="form3Example1" class="form-control" name="my-file" id="file" />
+        </div>
+        <div class="col">
+            <div class="all-products">
+                <div class="card h-100">
+                    <img src="/images/product4.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <div class="product-info">
+                            <div class="product-title">Tablet pc with 64gb sd card</div>
+                            <p class="short-desc">This is test short description for this product card. Its for practice
+                                purpose only...
+                            </p>
+                            <div class="price"><span class="new-price">Tk 8,000</span> <span class="old-price">Tk
+                                    9,000</span> <span class="off">30% OFF</span>
+                            </div>
+                            <div class="product-button d-flex justify-content-evenly mt-2">
+                                <button class="fill">Buy Now</button>
+                                <button class="nofill">Get Affiliate</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="col">
+            <div class="all-products">
+                <div class="card h-100">
+                    <img src="/images/product4.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <div class="product-info">
+                            <div class="product-title">Tablet pc with 64gb sd card</div>
+                            <p class="short-desc">This is test short description for this product card. Its for practice
+                                purpose only...
+                            </p>
+                            <div class="price"><span class="new-price">Tk 8,000</span> <span class="old-price">Tk
+                                    9,000</span> <span class="off">30% OFF</span>
+                            </div>
+                            <div class="product-button d-flex justify-content-evenly mt-2">
+                                <button class="fill">Buy Now</button>
+                                <button class="nofill">Get Affiliate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4"> Upload </button>
-
-
-        </form>
+        <div class="col">
+            <div class="all-products">
+                <div class="card h-100">
+                    <img src="/images/product4.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <div class="product-info">
+                            <div class="product-title">Tablet pc with 64gb sd card</div>
+                            <p class="short-desc">This is test short description for this product card. Its for practice
+                                purpose only...
+                            </p>
+                            <div class="price"><span class="new-price">Tk 8,000</span> <span class="old-price">Tk
+                                    9,000</span> <span class="off">30% OFF</span>
+                            </div>
+                            <div class="product-button d-flex justify-content-evenly mt-2">
+                                <button class="fill">Buy Now</button>
+                                <button class="nofill">Get Affiliate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <%- include('../partials/footer.ejs')  %>
 

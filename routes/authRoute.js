@@ -11,7 +11,11 @@ const {
     logoutController,
     changePasswordGetController,
     changePasswordPostController,
-    verifyController
+    verifyController,
+    forgotPasswordGetController,
+    forgotPasswordPostController,
+    resetPasswordGetController,
+    resetPasswordPostController
 } = require('../controllers/authController')
 
 const {
@@ -28,6 +32,13 @@ router.post('/login',isUnAuthenticated,loginValidator,loginPostController)
 
 router.get('/change-password',isAuthenticated,changePasswordGetController)
 router.post('/change-password',isAuthenticated,changePasswordPostController)
+
+
+router.get('/forgot-password',isUnAuthenticated,forgotPasswordGetController)
+router.post('/forgot-password',isUnAuthenticated,forgotPasswordPostController)
+
+router.get('/reset-password/:userId/:token',isUnAuthenticated,resetPasswordGetController)
+router.post('/reset-password/:userId/:token',isUnAuthenticated,resetPasswordPostController)
 
 router.get('/verify-account/:v_id',verifyController)
 

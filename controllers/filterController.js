@@ -3,7 +3,7 @@ const errorFormatter = require('../utils/validationErrorFormatter')
 const  {validationResult} = require('express-validator')
 const Category = require('../models/Category')
 
-
+ 
 exports.categoryGetController = async (req,res,next) =>{
     try{
 
