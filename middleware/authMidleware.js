@@ -23,10 +23,6 @@ exports.bindUserWithRequest = () =>{
 
 exports.isAuthenticated = (req,res,next) =>{
     
-
-    const decode = jwt.verify(req.session.token, config.get('secret'))
-    console.log(decode)
-    
     if(!req.session.isLoggedIn){
         return res.redirect('/auth/login')
     }

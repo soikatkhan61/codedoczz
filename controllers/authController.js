@@ -11,7 +11,7 @@ const {google} = require('googleapis')
 const CLIENT_ID = '221485066111-6dcucndtpmm2tcvothl6bfanh1ets1o2.apps.googleusercontent.com'
 const CLIENT_SECRET = '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'
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
-const REFRESH_TOKEN = '1//04zJSF8B9sRhWCgYIARAAGAQSNwF-L9IryBwEj3VM8h9kx-j2PbRyv2NapNMosJ3oAsYwxeFlfVfyCNS-A3rDIwmH-uv_ZZDbg7w'
+const REFRESH_TOKEN = '1//04wNt0Rbqgi7ECgYIARAAGAQSNwF-L9IrUzxMq4DHzWrqZ3gJnCXAB9mOiJoSYkYMEJT7q_r6tuJszp95wzTH_oMypDegfW4faso'
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI)
 oAuth2Client.setCredentials({refresh_token:REFRESH_TOKEN})
@@ -64,8 +64,6 @@ exports.signupPostController = async (req,res,next) =>{
 
             try{
                 const accessToken = await oAuth2Client.getAccessToken()
-
-
                 const transport = nodemailer.createTransport({
                     service:'gmail',
                     auth:{
